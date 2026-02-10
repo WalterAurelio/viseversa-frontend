@@ -5,6 +5,9 @@
 @theme {
   /* Colours */
   --Main-Black-Base: #171413;
+  --Placeholder-Grey: #757575;
+  --Main-White: #FFFFFF;
+  --Border-Grey: #C5C5C5;
 }
 
 body {
