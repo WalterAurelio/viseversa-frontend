@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Charmonman:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
-
+@import './styles/typography.css';
 
 @theme {
   /* Colours */
@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif; 
+  font-family: var(--font-Sans-Serif); 
   color: var(--Main-Black-Base);
   font-weight: 400;
 }

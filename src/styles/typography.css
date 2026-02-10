@@ -1,0 +1,47 @@
+@theme {
+  /* Typography */
+  --font-Serif: 'Charmonman', serif;
+  --font-Sans-Serif: 'Raleway', sans-serif;
+}
+
+/* Font weight */
+.bold {
+    font-weight: 700;
+}
+
+/* Font size */
+.text-h1 {
+    font-size: 61.04px;
+}
+
+.text-h2 {
+    font-size: 48.83px;
+}
+
+.text-h3 {
+    font-size: 39.06px;
+}
+
+.text-h4 {
+    font-size: 31.25px;
+}
+
+.text-h5 {
+    font-size: 25px;
+}
+
+.text-h6 {
+    font-size: 20px;
+}
+
+.text-body {
+    font-size: 16px;
+}
+
+.text-small {
+    font-size: 12.8px;
+}
+
+.text-extraSmall {
+    font-size: 10.24px;
+}
