@@ -1,4 +1,6 @@
 function App() {
-  return <div className='font-bold'>App</div>;
+  return (
+    <div>App</div>
+  )
 }
-export default App;
+export default App
