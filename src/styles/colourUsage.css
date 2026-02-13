@@ -1,0 +1,57 @@
+@import './primitives/colourPrimitives.css';
+
+@theme {
+  /* Background */
+  --color-background-neutral-primary: var(--greyscale-0);
+  --color-background-neutral-secondary: var(--greyscale-10);
+  --color-background-neutral-tertiary: var(--greyscale-20);
+  --color-background-neutral-disabled: var(--greyscale-30);
+
+  --color-background-neutral-inverse-primary: var(--greyscale-100);
+  --color-background-neutral-inverse-secondary: var(--greyscale-90);
+  --color-background-neutral-inverse-tertiary: var(--greyscale-80);
+
+  --color-background-brand-primary: var(--red-50);
+  --color-background-brand-secondary: var(--red-30);
+  --color-background-brand-tertiary: var(--red-10);
+
+  --color-background-miscellaneous-primary: var(--green-50);
+
+  /* Text */
+  --color-text-neutral-primary: var(--greyscale-100);
+  --color-text-neutral-secondary: var(--greyscale-80);
+  --color-text-neutral-tertiary: var(--greyscale-70);
+  --color-text-neutral-disabled: var(--greyscale-50);
+
+  --color-text-neutral-inverse-primary: var(--greyscale-10);
+  --color-text-neutral-inverse-secondary: var(--greyscale-20);
+  --color-text-neutral-inverse-tertiary: var(--greyscale-30);
+
+  --color-text-brand-primary: var(--red-50);
+  --color-text-brand-inverse: var(--red-10);
+
+  /* Icon */
+  --color-icon-neutral-primary: var(--greyscale-100);
+  --color-icon-neutral-secondary: var(--greyscale-80);
+  --color-icon-neutral-tertiary: var(--greyscale-70);
+  --color-icon-neutral-disabled: var(--greyscale-50);
+
+  --color-icon-neutral-inverse-primary: var(--greyscale-10);
+  --color-icon-neutral-inverse-secondary: var(--greyscale-20);
+  --color-icon-neutral-inverse-tertiary: var(--greyscale-30);
+
+  --color-icon-brand-primary: var(--red-50);
+  --color-icon-brand-inverse: var(--red-10);
+
+  --color-icon-miscellaneous-primary: var(--yellow-50);
+
+  /* Border */
+  --color-border-neutral-primary: var(--greyscale-90);
+  --color-border-neutral-secondary: var(--greyscale-70);
+
+  --color-border-neutral-inverse-primary: var(--greyscale-30);
+  --color-border-neutral-inverse-secondary: var(--greyscale-50);
+
+  --color-border-brand-primary: var(--red-50);
+  --color-border-brand-inverse: var(--red-20);
+}

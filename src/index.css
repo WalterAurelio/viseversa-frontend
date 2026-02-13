@@ -15,3 +15,7 @@ body {
   color: var(--Main-Black-Base);
   font-weight: 400;
 }
+@import './styles/colourUsage.css';
+@import './styles/radius.css';
+@import './styles/spacing.css';
+@import './styles/strokeWidth.css';
