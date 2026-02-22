@@ -1,5 +1,5 @@
 export function SectionTitle({ title } : { title: string }) {
   return (
-    <h2 className="text-body font-bold lg:text-h5">{title}</h2>
+    <h2 className="h5-bold">{title}</h2>
   )
 }
