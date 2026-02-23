@@ -1,6 +1,6 @@
 /* Usaremos estos valores para border width */
 @theme {
-  --border-width-custom-xs: 0.5px;
+  --border-width-custom-xs: 0.5px; /* Navegador no renderiza 0.5px; valor mínimo: 1px; A MODIFICAR */
   --border-width-custom-s: 1px;
   --border-width-custom-m: 2px;
   --border-width-custom-l: 4px;
