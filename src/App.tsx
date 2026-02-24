@@ -4,7 +4,7 @@ function App() {
   return (
     <div>
       <h1>App</h1>
-      <Button buttonStyle={'fill'} colour={'red'} state={'disabled'}>Button</Button>
+      <Button>Button</Button>
     </div>
   );
 }
