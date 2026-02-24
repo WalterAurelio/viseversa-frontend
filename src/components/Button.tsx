@@ -1,5 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../utils/cn';
+import type { ReactNode } from 'react';
 
 const variants = cva(['inline-flex', 'h-9', 'min-w-28.5', 'px-m', 'justify-center', 'items-center', 'gap-s', 'rounded-full', 'body-regular'], {
   variants: {
@@ -56,15 +57,19 @@ const variants = cva(['inline-flex', 'h-9', 'min-w-28.5', 'px-m', 'justify-cente
   }
 });
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof variants>;
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof variants> & {
+    icon?: ReactNode;
+  };
 
-function Button({ colour, buttonStyle, state, children, ...props }: ButtonProps) {
+function Button({ colour, buttonStyle, state, icon, children, ...props }: ButtonProps) {
   return (
     <button
       className={cn(variants({ colour, buttonStyle, state }))}
       {...props}
     >
       {children}
+      {icon}
     </button>
   );
 }
