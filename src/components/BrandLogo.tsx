@@ -1,5 +1,22 @@
-export default function BrandLogo({ name } : { name: string }) {
-    return (
-        <p className="font-Serif h1-bold">{name}</p>
-    );
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '../utils/cn';
+
+const variants = cva(['font-Serif h1-bold'], {
+  variants: {
+    colour: {
+      black: 'text-text-neutral-primary',
+      white: 'text-text-neutral-inverse-primary',
+    },
+  },
+  defaultVariants: {
+    colour: 'black',
+  },
+});
+
+type BrandLogoProps = VariantProps<typeof variants> & {
+  name: string;
+};
+
+export default function BrandLogo({ name, colour }: BrandLogoProps) {
+  return <p className={cn(variants({ colour }))}>{name}</p>;
 }

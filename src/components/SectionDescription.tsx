@@ -1,7 +1,5 @@
-import type { PropsWithChildren } from "react";
+import type { PropsWithChildren } from 'react';
 
-export default function SectionDescription({ children } : PropsWithChildren ) {
-  return (
-    <p className="h6-regular">{children}</p>
-  )
+export default function SectionDescription({ children }: PropsWithChildren) {
+  return <p className='h6-regular'>{children}</p>;
 }
