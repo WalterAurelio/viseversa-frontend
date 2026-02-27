@@ -2,7 +2,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../utils/cn';
 import type { ReactNode } from 'react';
 
-const variants = cva(['inline-flex', 'h-9', 'min-w-28.5', 'px-m', 'justify-center', 'items-center', 'gap-s', 'rounded-full', 'body-regular'], {
+const variants = cva(['inline-flex', 'h-9', 'min-w-28.5', 'px-m', 'justify-center', 'items-center', 'gap-s', 'rounded-full'], {
   variants: {
     colour: {
       black: '',
@@ -10,8 +10,8 @@ const variants = cva(['inline-flex', 'h-9', 'min-w-28.5', 'px-m', 'justify-cente
     },
     buttonStyle: {
       fill: 'text-text-neutral-inverse-primary',
-      outline: 'border-custom-s lg:hover:border-custom-m',
-      minimal: 'lg:hover:border-b-custom-s'
+      outline: 'border-width-s lg:hover:border-width-m',
+      minimal: 'lg:hover:border-b-width-m'
     },
     state: {
       idle: 'lg:cursor-pointer',

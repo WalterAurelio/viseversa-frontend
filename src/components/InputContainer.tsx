@@ -11,7 +11,7 @@ function InputContainer({ label, errorMsg, children }: InputContainerProps) {
     <div className='flex flex-col gap-s'>
       {label && <label className='text-text-neutral-primary body-bold'>{label}</label>}
       {children ? children : <Dummy />}
-      {errorMsg && <p className='text-text-brand-primary small-regular'>{errorMsg}</p>}
+      {errorMsg && <p className='text-text-brand-primary small-normal'>{errorMsg}</p>}
     </div>
   );
 }

@@ -23,8 +23,8 @@ function HowToCard({ img, alt = '', title = 'Title', description = 'Lorem ipsum 
       )}
 
       <div className='flex flex-col justify-center items-center gap-s text-text-neutral-primary text-center'>
-        <h6 className='h6-regular'>{title}</h6>
-        <p className='body-regular'>{description}</p>
+        <h6 className='h6-normal'>{title}</h6>
+        <p>{description}</p>
       </div>
     </div>
   );
