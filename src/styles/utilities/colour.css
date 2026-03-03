@@ -1,4 +1,4 @@
-@import './primitives/colourPrimitives.css';
+@import '../primitives/colour.css';
 
 @theme {
   /* Background */

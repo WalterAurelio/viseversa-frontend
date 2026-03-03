@@ -6,7 +6,7 @@ function NavAnchor({ to, children, ...props }: NavLinkProps) {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        cn('body-regular', {
+        cn({
           'lg:hover:underline': !isActive,
           'text-text-brand-primary': isActive
         })
