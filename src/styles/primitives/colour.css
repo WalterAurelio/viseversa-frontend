@@ -1,5 +1,4 @@
 :root {
-  /* Red */
   --red-10: #ffeaec;
   --red-20: #ffbdc3;
   --red-30: #ff8f9a;
@@ -11,10 +10,6 @@
   --red-90: #6f000b;
   --red-100: #4d0008;
 
-  /* Green */
-  --green-50: #31f74b;
-
-  /* Yellow */
   --yellow-10: #fff8ea;
   --yellow-20: #ffe7bd;
   --yellow-30: #ffd78f;
@@ -26,7 +21,8 @@
   --yellow-90: #744b00;
   --yellow-100: #523500;
 
-  /* Greyscale */
+  --green-50: #31f74b; /* Completar paleta */
+
   --greyscale-0: #ffffff;
   --greyscale-10: #f3f2f2;
   --greyscale-20: #f2ecec;
@@ -39,6 +35,4 @@
   --greyscale-90: #534748;
   --greyscale-100: #3c3233;
   --greyscale-999: #000000;
-  --white: #ffffff;
-  --black: #000000;
 }
