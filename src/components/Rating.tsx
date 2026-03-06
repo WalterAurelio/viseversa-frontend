@@ -15,8 +15,9 @@ export default function Rating({ number }: { number: number }) {
   }
 
   return (
-    <div className='w-fit flex items-center gap-xs text-text-neutral-tertiary body-regular'>
-      {stars}{number}
+    <div className='w-fit flex items-center gap-xs text-text-neutral-tertiary'>
+      {stars}
+      {number}
     </div>
   );
 }

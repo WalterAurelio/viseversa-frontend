@@ -4,14 +4,14 @@ import { useState } from 'react';
 
 const variants = cva(
   [
-    'py-2 px-4 my-1 max-w-52.5 lg:max-w-125 w-fit rounded rounded-b-[var(--radius-custom-m)] body-regular',
+    'py-s px-l my-xs max-w-52.5 lg:max-w-125 w-fit rounded rounded-b-border-m',
   ],
   {
     variants: {
       owner: {
         other:
-          'rounded-l-none rounded-tr-[var(--radius-custom-m)] bg-background-neutral-primary text-text-neutral-primary',
-        self: 'rounded-r-none rounded-tl-[var(--radius-custom-m)] bg-background-brand-primary text-text-neutral-inverse-primary',
+          'rounded-l-none rounded-tr-border-m bg-background-neutral-primary text-text-neutral-primary',
+        self: 'rounded-r-none rounded-tl-border-m bg-background-brand-primary text-text-neutral-inverse-primary',
       },
     },
   }

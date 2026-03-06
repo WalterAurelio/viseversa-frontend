@@ -3,10 +3,10 @@ import './Checkbox.css';
 export default function Checkbox({ name }: { name: string }) {
   return (
     <label
-      className='bg-background-neutral-primary text-text-neutral-tertiary border border-border-neutral-inverse-primary p-2 rounded-full text-small flex gap-1 items-center w-fit'
+      className='bg-background-neutral-primary text-text-neutral-secondary border-width-s border-border-neutral-inverse-primary p-s rounded-full small-normal flex gap-xs items-center w-fit'
       htmlFor={name}
     >
-      <input type='checkbox' id={name} name={name} />
+      <input className='input-checkbox' type='checkbox' id={name} name={name} />
       {name}
     </label>
   );
