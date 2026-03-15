@@ -18,7 +18,7 @@ function HowToCard({ img, alt = '', title = 'Title', description = 'Lorem ipsum 
         />
       ) : (
         <div className='w-full aspect-3/4 bg-background-neutral-tertiary flex items-center justify-center'>
-          <Image />
+          <Image className='h-6 w-6'/>
         </div>
       )}
 

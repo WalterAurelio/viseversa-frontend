@@ -21,7 +21,7 @@ export default function QueryCard({
         />
       ) : (
         <div className='w-full aspect-3/4 bg-background-neutral-tertiary flex items-center justify-center rounded-border-xl'>
-          <Image />
+          <Image className='h-6 w-6'/>
         </div>
       )}
       <p className='text-text-neutral-tertiary'>{description}</p>

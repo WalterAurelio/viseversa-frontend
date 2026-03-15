@@ -20,12 +20,13 @@ const variants = cva(
 type MessageProps = VariantProps<typeof variants> & {
   text: string;
   maxLength?: number;
+  time?: string;
 };
 
 export default function Message({
   text,
   owner,
-  maxLength = 400,
+  maxLength = 400, time = '10:30' 
 }: MessageProps) {
   const [textLength, setTextLength] = useState(maxLength);
 
@@ -40,6 +41,7 @@ export default function Message({
           Leer más
         </button>
       )}
+      <p className='text-right'>{time}</p>
     </div>
   );
 }

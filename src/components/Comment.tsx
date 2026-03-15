@@ -26,7 +26,7 @@ export default function Comment({
           />
         ) : (
           <div className='max-w-50 aspect-3/4 bg-background-neutral-tertiary flex items-center justify-center'>
-            <Image />
+            <Image className='h-6 w-6'/>
           </div>
         )}
       </div>
