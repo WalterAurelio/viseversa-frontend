@@ -5,9 +5,9 @@ import type { ReactNode } from 'react';
 const variants = cva(['flex', 'p-s', 'justify-center', 'items-center', 'rounded-full', 'w-fit'], {
   variants: {
     size: {
-      M: 'text-body gap-s',
-      S: 'text-small gap-s',
-      XS: 'text-extra-small gap-xs'
+      M: 'body-normal gap-s',
+      S: 'small-normal gap-s',
+      XS: 'extra-small-normal gap-xs'
     },
     customStyle: {
       fill: 'text-text-neutral-inverse-primary bg-background-neutral-inverse-primary',
