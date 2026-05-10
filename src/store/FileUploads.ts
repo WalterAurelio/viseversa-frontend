@@ -1,18 +1,5 @@
 import { create } from 'zustand';
 
-type PhotoPreviewState = { url: string };
-
-type PhotoPreviewActions = {
-  setPhoto: (newPhoto: PhotoPreviewState['url']) => void;
-};
-
-type PhotoPreview = PhotoPreviewState & PhotoPreviewActions;
-
-export const usePhotoPreview = create<PhotoPreview>()((set) => ({
-  url: '',
-  setPhoto: (newPhoto) => set({ url: newPhoto }),
-}));
-
 export type ImgFile = {
   file: File;
   url: string;
@@ -37,7 +24,7 @@ export const useImgsFile = create<{ files: ImgFile[] } & ImgsFileActions>()(
               existingFile.file.lastModified === newFile.file.lastModified
           );
         })
-        filteredNewFiles.splice(3, filteredNewFiles.length - 1);
+        filteredNewFiles.splice(4, filteredNewFiles.length - 1);
         return { files: [...state.files, ...filteredNewFiles] };
       }),
   })

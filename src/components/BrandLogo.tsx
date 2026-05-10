@@ -4,8 +4,8 @@ import { cn } from '../utils/cn';
 const variants = cva(['font-Serif h1-bold'], {
   variants: {
     colour: {
-      black: 'text-text-neutral-primary',
-      white: 'text-text-neutral-inverse-primary',
+      black: 'text-neutral-primary',
+      white: 'text-neutral-inverse-primary',
     },
   },
   defaultVariants: {

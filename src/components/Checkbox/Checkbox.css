@@ -3,7 +3,8 @@
   border-radius: var(--radius-border-xl);
   width: 16px;
   height: 16px;
-  border: var(--border-width-width-s) solid var(--color-border-neutral-inverse-primary);
+  border: var(--border-width-width-s) solid
+    var(--border-color-neutral-inverse-primary);
   position: relative;
 
   @media screen and (min-width: 1024px) {
@@ -17,15 +18,19 @@ label {
   cursor: pointer;
 }
 
-.input-checkbox::before {
-  content: url('../../assets/icons/Check.svg');
-  position: absolute;
-  width: 8px;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .input-checkbox:checked {
-  background: var(--color-background-neutral-inverse-primary);
+  background: var(--background-color-neutral-inverse-primary);
+
+  &::before {
+    content: url('../../assets/icons/Check.svg');
+    position: absolute;
+    width: 8px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media (max-width: 1024px) {
+      top: 50%;
+    }
+  }
 }

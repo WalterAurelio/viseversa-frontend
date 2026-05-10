@@ -12,12 +12,14 @@ function InputContainer({ label, htmlFor, errorMsg, children }: InputContainerPr
     <div className='flex flex-col gap-s'>
       <label
         htmlFor={htmlFor}
-        className='text-text-neutral-primary body-bold select-none'
+        className='text-neutral-primary body-bold select-none'
       >
         {label}
       </label>
       {children ? children : <Dummy />}
-      {errorMsg && <p className='text-text-brand-primary small-normal'>{errorMsg}</p>}
+      {errorMsg && (
+        <p className='text-brand-primary small-normal'>{errorMsg}</p>
+      )}
     </div>
   );
 }

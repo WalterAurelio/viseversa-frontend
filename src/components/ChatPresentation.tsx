@@ -14,9 +14,9 @@ type ChatPresentationProps = {
 } & Omit<React.ComponentProps<typeof StatusPin>, 'className'>;
 
 export default function ChatPresentation({
-  username,
+  username = 'john_doe123',
   img,
-  status,
+  status = 'online',
   handleSearch,
 }: ChatPresentationProps) {
   const [openSearch, setOpenSearch] = useState(false);
@@ -27,7 +27,7 @@ export default function ChatPresentation({
   };
 
   return (
-    <div className='flex items-center justify-between bg-background-neutral-tertiary py-m pl-s pr-l'>
+    <div className='w-full flex items-center justify-between bg-neutral-tertiary py-m pl-s pr-l'>
       {openSearch ? (
         <div className='flex items-center gap-m w-full'>
           <div onClick={() => toggleSearch()} className='cursor-pointer'>
@@ -50,7 +50,7 @@ export default function ChatPresentation({
             ></Avatar>
           </div>
           <div onClick={() => toggleSearch()} className='cursor-pointer'>
-            <MagnifyingGlass className='text-icon-neutral-primary'/>
+            <MagnifyingGlass className='text-neutral-primary' />
           </div>
         </>
       )}

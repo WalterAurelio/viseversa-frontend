@@ -9,9 +9,9 @@ const variants = cva([], {
       l: 'h4-bold',
     },
     colour: {
-      black: 'text-text-neutral-primary',
-      red: 'text-text-brand-primary',
-      white: 'text-text-neutral-inverse-primary',
+      black: 'text-neutral-primary',
+      red: 'text-brand-primary',
+      white: 'text-neutral-inverse-primary',
     },
   },
   defaultVariants: {

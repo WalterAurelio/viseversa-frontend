@@ -16,7 +16,9 @@ export default function NotificationsToggler({
       <button className='cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
         <Bell />
       </button>
-      <div className={`absolute bg-background-neutral-primary w-86 rounded-border-xl overflow-hidden transition duration-300 ease-out delay-300 ${isOpen ? 'translate-y-8 right-0 opacity-100' : '-translate-y-90 opacity-0 '}`}>
+      <div
+        className={`absolute bg-neutral-primary w-86 rounded-border-xl overflow-hidden transition duration-300 ease-out delay-300 ${isOpen ? 'translate-y-8 right-0 opacity-100' : '-translate-y-90 opacity-0 '}`}
+      >
         <p className='body-bold px-l py-l'>Notificaciones</p>
         <div>
           {notifs.map((n, index) => (

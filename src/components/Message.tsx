@@ -3,15 +3,13 @@ import { cn } from '../utils/cn';
 import { useState } from 'react';
 
 const variants = cva(
-  [
-    'py-s px-l my-xs max-w-52.5 lg:max-w-125 w-fit rounded rounded-b-border-m',
-  ],
+  ['py-s px-l my-xs max-w-52.5 lg:max-w-125 w-fit rounded rounded-b-border-m'],
   {
     variants: {
       owner: {
         other:
-          'rounded-l-none rounded-tr-border-m bg-background-neutral-primary text-text-neutral-primary',
-        self: 'rounded-r-none rounded-tl-border-m bg-background-brand-primary text-text-neutral-inverse-primary',
+          'rounded-l-none rounded-tr-border-m bg-neutral-primary text-neutral-primary',
+        self: 'rounded-r-none rounded-tl-border-m bg-brand-primary text-neutral-inverse-primary',
       },
     },
   }

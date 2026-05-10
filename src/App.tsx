@@ -2,7 +2,8 @@ import Button from './components/Button';
 import Input from './components/Input';
 import InputContainer from './components/InputContainer';
 import SearchBar from './components/SearchBar';
-
+import FileUpload from './components/FileUpload';
+import MessagePreview from './components/MessagePreview';
 function App() {
   return (
     <div>
@@ -16,6 +17,8 @@ function App() {
         <Input placeholder='Ingresar contraseña' />
       </InputContainer>
       <br />
+      <FileUpload />
+      <MessagePreview />
       <SearchBar />
     </div>
   );

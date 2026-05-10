@@ -25,8 +25,8 @@ export default function Comment({
             alt={alt}
           />
         ) : (
-          <div className='max-w-50 aspect-3/4 bg-background-neutral-tertiary flex items-center justify-center'>
-            <Image className='h-6 w-6'/>
+          <div className='max-w-50 aspect-3/4 bg-neutral-tertiary flex items-center justify-center'>
+            <Image className='h-6 w-6' />
           </div>
         )}
       </div>

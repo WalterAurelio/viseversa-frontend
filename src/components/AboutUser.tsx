@@ -21,9 +21,9 @@ export default function AboutUser({
   exchanges = 24,
 }: AboutUserProps) {
   return (
-    <div className='relative w-72 h-fit lg:w-120 lg:h-fit bg-background-neutral-primary rounded-border-xl flex flex-col gap-xl'>
+    <div className='relative w-72 h-fit lg:w-120 lg:h-fit bg-neutral-primary rounded-border-xl flex flex-col gap-xl'>
       <div>
-        <div className='bg-background-brand-secondary w-full h-18 rounded-t-border-xl'></div>
+        <div className='bg-brand-secondary w-full h-18 rounded-t-border-xl'></div>
         <div className='border-width-m border-background-neutral-primary absolute top-9 left-6 rounded-full'>
           <Avatar size='L' />
         </div>
@@ -32,7 +32,7 @@ export default function AboutUser({
         <div className='flex flex-col gap-xs'>
           <p className='h6-bold'>{name}</p>
           <Rating number={rating}></Rating>
-          <p className='text-text-neutral-tertiary'>{biography}</p>
+          <p className='text-neutral-tertiary'>{biography}</p>
         </div>
         <IconNText
           size='M'
@@ -40,7 +40,7 @@ export default function AboutUser({
           customStyle='minimal'
           description={ubication}
         />
-        <div className='flex gap-m text-text-neutral-tertiary'>
+        <div className='flex gap-m text-neutral-tertiary'>
           <div>
             <p className='text-center'>{publications}</p>
             <p>Publicaciones</p>

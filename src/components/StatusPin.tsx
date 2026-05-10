@@ -9,10 +9,10 @@ function StatusPin({ status = 'offline', className }: StatusPinProps) {
   return (
     <div
       className={cn(
-        'w-3 aspect-square border-2 border-border-neutral-inverse-primary rounded-full',
+        'w-3 aspect-square border-2 border-neutral-inverse-primary rounded-full',
         {
-          'bg-background-miscellaneous-primary': status === 'online',
-          'bg-background-neutral-inverse-tertiary': status === 'offline'
+          'bg-miscellaneous-primary': status === 'online',
+          'bg-neutral-inverse-tertiary': status === 'offline',
         },
         className
       )}

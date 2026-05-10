@@ -5,6 +5,12 @@ type DummyProps = {
 };
 
 function Dummy({ opacity = 'full' }: DummyProps) {
-  return <div className={cn('w-full h-px bg-background-neutral-disabled', { 'opacity-0': opacity === 'null' })}></div>;
+  return (
+    <div
+      className={cn('w-full h-px bg-neutral-disabled', {
+        'opacity-0': opacity === 'null',
+      })}
+    ></div>
+  );
 }
 export default Dummy;

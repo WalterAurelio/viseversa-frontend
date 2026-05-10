@@ -23,21 +23,19 @@ function Notification({
   content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 }: NotificationProps) {
   return (
-    <div className='flex justify-center items-center p-l gap-s w-fit lg:hover:bg-background-brand-tertiary'>
+    <div className='flex justify-center items-center p-l gap-s w-fit lg:hover:bg-brand-tertiary'>
       <Avatar />
       <div className='flex w-60 flex-col gap-xs'>
         <div className='flex items-center gap-xs'>
           {type === 'intercambioCompleto' ? (
-            <p className='small-bold select-none'>
-              {actions[type]}
-            </p>
+            <p className='small-bold select-none'>{actions[type]}</p>
           ) : (
             <p className='small-normal select-none'>
               <span className='small-bold'>{username}</span> {actions[type]}
             </p>
           )}
         </div>
-        <p className='small-normal overflow-hidden text-text-neutral-tertiary text-ellipsis whitespace-nowrap select-none'>
+        <p className='small-normal overflow-hidden text-neutral-tertiary text-ellipsis whitespace-nowrap select-none'>
           {content}
         </p>
       </div>

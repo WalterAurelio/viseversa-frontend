@@ -2,26 +2,30 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import Home from '../assets/icons/House.svg?react';
 import type { ReactNode } from 'react';
 
-const variants = cva(['flex', 'p-s', 'justify-center', 'items-center', 'rounded-full', 'w-fit'], {
-  variants: {
-    size: {
-      M: 'body-normal gap-s',
-      S: 'small-normal gap-s',
-      XS: 'extra-small-normal gap-xs'
+const variants = cva(
+  ['flex', 'p-s', 'justify-center', 'items-center', 'rounded-full', 'w-fit'],
+  {
+    variants: {
+      size: {
+        M: 'body-normal gap-s',
+        S: 'small-normal gap-s',
+        XS: 'extra-small-normal gap-xs',
+      },
+      customStyle: {
+        fill: 'text-neutral-inverse-primary bg-neutral-inverse-primary',
+        outline:
+          'border-width-s border-neutral-inverse-secondary text-neutral-tertiary',
+        minimal: 'text-neutral-tertiary',
+        black: 'text-neutral-primary',
+        // white: '' ¿Se usa la variante white? Revisar diseño.
+      },
     },
-    customStyle: {
-      fill: 'text-text-neutral-inverse-primary bg-background-neutral-inverse-primary',
-      outline: 'border-width-s border-border-neutral-inverse-secondary text-text-neutral-tertiary',
-      minimal: 'text-text-neutral-tertiary',
-      black: 'text-text-neutral-primary'
-      // white: '' ¿Se usa la variante white? Revisar diseño.
-    }
-  },
-  defaultVariants: {
-    size: 'M',
-    customStyle: 'fill'
+    defaultVariants: {
+      size: 'M',
+      customStyle: 'fill',
+    },
   }
-});
+);
 
 type IconNTextProps = React.HTMLAttributes<HTMLDivElement> &
   VariantProps<typeof variants> & {

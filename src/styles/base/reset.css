@@ -4,7 +4,7 @@
 
 body {
   font-family: var(--font-sans-serif);
-  color: var(--color-text-neutral-primary);
+  color: var(--text-color-neutral-primary);
   font-weight: normal;
   font-size: var(--text-small);
 
@@ -18,7 +18,7 @@ textarea {
   outline: none;
 
   &::placeholder {
-    color: var(--color-text-neutral-tertiary);
+    color: var(--text-color-neutral-tertiary);
   }
 }
 
@@ -58,12 +58,12 @@ textarea {
   padding: 4px;
 
   &:hover {
-    background-color: var(--color-background-neutral-secondary);
+    background-color: var(--background-color-neutral-secondary);
   }
 
   &:checked {
     font-weight: bold;
-    background-color: var(--color-background-brand-secondary);
+    background-color: var(--background-color-brand-secondary);
 
     &:hover {
       cursor: default;

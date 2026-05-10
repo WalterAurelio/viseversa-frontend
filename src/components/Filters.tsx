@@ -38,17 +38,20 @@ export default function Filters() {
 
   return (
     <div className='relative w-[288px]'>
-      <div className='flex gap-s justify-end cursor-pointer' onClick={() => setIsOpen(true)}>
+      <div
+        className='flex gap-s justify-end cursor-pointer'
+        onClick={() => setIsOpen(true)}
+      >
         <Faders />
         Filtros <CaretDown />
       </div>
       <div
-        className={`absolute top-0 bg-background-neutral-primary p-l rounded-border-l w-[288px] flex flex-col gap-m transition duration-300 ease-out delay-300 ${isOpen ? 'right-0 opacity-100' : 'translate-x-90 opacity-0'}`}
+        className={`absolute top-0 bg-neutral-primary p-l rounded-border-l w-[288px] flex flex-col gap-m transition duration-300 ease-out delay-300 ${isOpen ? 'right-0 opacity-100' : 'translate-x-90 opacity-0'}`}
       >
         <div className='flex justify-between'>
           <p className='h6-bold'>Filtros</p>
           <div className='flex gap-s items-center'>
-            <button className='small-normal text-text-neutral-tertiary cursor-pointer'>
+            <button className='small-normal text-neutral-tertiary cursor-pointer'>
               Limpiar
             </button>
             <button className='cursor-pointer' onClick={() => setIsOpen(false)}>
@@ -71,7 +74,11 @@ export default function Filters() {
             <>
               {ubicaciones.map((u, index) => {
                 return (
-                  <option className='option-form cursor-pointer' key={index} value={u}>
+                  <option
+                    className='option-form cursor-pointer'
+                    key={index}
+                    value={u}
+                  >
                     {u}
                   </option>
                 );

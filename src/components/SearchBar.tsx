@@ -9,18 +9,15 @@ function SearchBar() {
   return (
     <form
       onSubmit={handleSubmit}
-      className='flex w-full min-h-9 pr-m pl-l justify-between items-center border-width-s rounded-full border-border-neutral-inverse-primary'
+      className='flex w-full min-h-9 pr-m pl-l justify-between items-center border-width-s rounded-full border-neutral-inverse-primary'
     >
       <input
         type='search'
         placeholder='Buscar en ViseVersa'
         className='w-full'
       />
-      <button
-        type='submit'
-        className='cursor-pointer'
-      >
-        <Magnifier className='text-icon-neutral-primary' />
+      <button type='submit' className='cursor-pointer'>
+        <Magnifier className='text-neutral-primary' />
       </button>
     </form>
   );

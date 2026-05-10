@@ -19,7 +19,10 @@ export default function PostCard({
   ubication = 'Córdoba',
 }: PostCardProps) {
   return (
-    <NavLink to='/' className='flex flex-col w-72 h-98 lg:h-102 bg-background-neutral-primary rounded-border-l justify-center'>
+    <NavLink
+      to='/'
+      className='flex flex-col w-72 h-97.5 lg:h-102 bg-neutral-primary rounded-border-l justify-center'
+    >
       <div className='relative'>
         {img ? (
           <img
@@ -28,7 +31,7 @@ export default function PostCard({
             className='relative aspect-square object-cover object-center rounded-t-border-l'
           />
         ) : (
-          <div className='relative aspect-square bg-background-neutral-tertiary flex items-center justify-center rounded-t-border-l'>
+          <div className='relative aspect-square bg-neutral-tertiary flex items-center justify-center rounded-t-border-l'>
             <Image className='h-6 w-6' />
           </div>
         )}
@@ -41,7 +44,7 @@ export default function PostCard({
           {title}
         </p>
         <div className='small-normal leading-[12.288px] lg:leading-[15.36px] flex flex-col gap-xs'>
-          <p className='small-bold text-text-brand-primary'>En busca de:</p>
+          <p className='small-bold text-brand-primary'>En busca de:</p>
           <p className='overflow-hidden text-ellipsis'>{description}</p>
         </div>
       </div>
