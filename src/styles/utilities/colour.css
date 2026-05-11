@@ -30,6 +30,8 @@
   --text-color-brand-primary: var(--red-50);
   --text-color-brand-inverse: var(--red-10);
 
+  --text-color-miscellaneous-primary: var(--yellow-50);
+
   /* Border */
   --border-color-neutral-primary: var(--greyscale-90);
   --border-color-neutral-secondary: var(--greyscale-70);

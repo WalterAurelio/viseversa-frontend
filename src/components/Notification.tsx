@@ -1,5 +1,5 @@
-import Avatar from './Avatar';
 import Trash from '../assets/icons/Trash.svg?react';
+import Image from '../assets/icons/Image.svg?react';
 
 const actions: {
   comentario: string;
@@ -14,17 +14,25 @@ const actions: {
 export type NotificationProps = {
   username: string;
   type: 'comentario' | 'solicitudIntercambio' | 'intercambioCompleto';
-  content: string;
+  postTitle: string;
+  imgPost: string;
 };
 
 function Notification({
-  username = 'John_Doe_123',
-  type = 'comentario' ,
-  content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  username = 'John_Doe123',
+  imgPost = '',
+  type = 'comentario',
+  postTitle = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 }: NotificationProps) {
   return (
     <div className='flex justify-center items-center p-l gap-s w-fit lg:hover:bg-brand-tertiary'>
-      <Avatar />
+      {imgPost ? (
+        <img src={imgPost} alt={`Imagen de ${postTitle}`} />
+      ) : (
+        <div className='w-5.5 h-7 lg:w-7 lg:h-8.5 bg-neutral-disabled flex items-center justify-center'>
+          <Image />
+        </div>
+      )}
       <div className='flex w-60 flex-col gap-xs'>
         <div className='flex items-center gap-xs'>
           {type === 'intercambioCompleto' ? (
@@ -36,10 +44,10 @@ function Notification({
           )}
         </div>
         <p className='small-normal overflow-hidden text-neutral-tertiary text-ellipsis whitespace-nowrap select-none'>
-          {content}
+          Publicación: {postTitle}
         </p>
       </div>
-      <button className='lg:cursor-pointer'>
+      <button name='delete' className='lg:cursor-pointer'>
         <Trash />
       </button>
     </div>

@@ -17,8 +17,8 @@ export default function AboutUser({
   rating = 4,
   biography = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   ubication = 'Córdoba',
-  publications = 13,
-  exchanges = 24,
+  publications = 24,
+  exchanges = 13,
 }: AboutUserProps) {
   return (
     <div className='relative w-72 h-fit lg:w-120 lg:h-fit bg-neutral-primary rounded-border-xl flex flex-col gap-xl'>

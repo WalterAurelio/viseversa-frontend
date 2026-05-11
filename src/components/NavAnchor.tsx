@@ -1,7 +1,10 @@
 import { NavLink, type NavLinkProps } from 'react-router';
 import { cn } from '../utils/cn';
+import type { PropsWithChildren } from 'react';
 
-function NavAnchor({ to, children, ...props }: NavLinkProps) {
+type NavAnchorProps = NavLinkProps & PropsWithChildren
+
+function NavAnchor({ to, children, ...props }: NavAnchorProps) {
   return (
     <NavLink
       to={to}

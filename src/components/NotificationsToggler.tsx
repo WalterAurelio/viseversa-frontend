@@ -26,7 +26,8 @@ export default function NotificationsToggler({
               key={index}
               username={n.username}
               type={n.type}
-              content={n.content}
+              imgPost=''
+              postTitle={n.postTitle}
             />
           ))}
         </div>
