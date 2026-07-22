@@ -18,21 +18,27 @@ function Avatar({ img, size = 'S', hasUsername = false, username = 'john_doe_123
           <img
             src={img}
             alt='User profile pic'
-            className={cn('aspect-square rounded-full object-cover object-center', {
-              'w-8': size === 'S',
-              'w-12': size === 'M',
-              'w-17': size === 'L',
-              'w-30.5': size === 'XL'
-            })}
+            className={cn(
+              'aspect-square rounded-full object-cover object-center',
+              {
+                'w-8': size === 'S',
+                'w-12': size === 'M',
+                'w-17': size === 'L',
+                'w-30.5': size === 'XL',
+              }
+            )}
           />
         ) : (
           <div
-            className={cn('flex aspect-square justify-center items-center rounded-full bg-background-neutral-disabled', {
-              'w-8': size === 'S',
-              'w-12': size === 'M',
-              'w-17': size === 'L',
-              'w-30.5': size === 'XL'
-            })}
+            className={cn(
+              'flex aspect-square justify-center items-center rounded-full bg-neutral-disabled',
+              {
+                'w-8': size === 'S',
+                'w-12': size === 'M',
+                'w-17': size === 'L',
+                'w-30.5': size === 'XL',
+              }
+            )}
           >
             <UserCircle />
           </div>
@@ -42,7 +48,7 @@ function Avatar({ img, size = 'S', hasUsername = false, username = 'john_doe_123
           <StatusPin
             className={cn('absolute right-0 bottom-0', {
               'right-1.5': size === 'L',
-              'right-3 bottom-3': size === 'XL'
+              'right-3 bottom-3': size === 'XL',
             })}
             status={status}
           />

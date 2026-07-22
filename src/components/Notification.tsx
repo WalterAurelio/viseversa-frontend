@@ -1,24 +1,53 @@
-import Avatar from './Avatar';
 import Trash from '../assets/icons/Trash.svg?react';
+import Image from '../assets/icons/Image.svg?react';
 
-/* Falta tipar, de acuerdo a las diferentes notificaciones que vayamos a mostrar. */
+const actions: {
+  comentario: string;
+  solicitudIntercambio: string;
+  intercambioCompleto: string;
+} = {
+  comentario: 'te comentó',
+  solicitudIntercambio: 'solicita un intercambio',
+  intercambioCompleto: 'Intercambio exitoso',
+};
 
-function Notification() {
+export type NotificationProps = {
+  username: string;
+  type: 'comentario' | 'solicitudIntercambio' | 'intercambioCompleto';
+  postTitle: string;
+  imgPost: string;
+};
+
+function Notification({
+  username = 'John_Doe123',
+  imgPost = '',
+  type = 'comentario',
+  postTitle = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+}: NotificationProps) {
   return (
-    <div className='flex justify-center items-center p-l gap-s w-fit lg:hover:bg-background-brand-tertiary'>
-      <Avatar />
-
+    <div className='flex justify-center items-center p-l gap-s w-fit lg:hover:bg-brand-tertiary'>
+      {imgPost ? (
+        <img src={imgPost} alt={`Imagen de ${postTitle}`} />
+      ) : (
+        <div className='w-5.5 h-7 lg:w-7 lg:h-8.5 bg-neutral-disabled flex items-center justify-center'>
+          <Image />
+        </div>
+      )}
       <div className='flex w-60 flex-col gap-xs'>
         <div className='flex items-center gap-xs'>
-          <p className='small-bold select-none'>john_doe_123:</p>
-          <p className='small-normal select-none'>solicita un intercambio.</p>
+          {type === 'intercambioCompleto' ? (
+            <p className='small-bold select-none'>{actions[type]}</p>
+          ) : (
+            <p className='small-normal select-none'>
+              <span className='small-bold'>{username}</span> {actions[type]}
+            </p>
+          )}
         </div>
-        <p className='small-normal overflow-hidden text-text-neutral-tertiary text-ellipsis whitespace-nowrap select-none'>
-          Publicación: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <p className='small-normal overflow-hidden text-neutral-tertiary text-ellipsis whitespace-nowrap select-none'>
+          Publicación: {postTitle}
         </p>
       </div>
-
-      <button className='lg:cursor-pointer'>
+      <button name='delete' className='lg:cursor-pointer'>
         <Trash />
       </button>
     </div>
