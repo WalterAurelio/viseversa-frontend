@@ -40,11 +40,11 @@ export default function PostCard({
         </div>
       </div>
       <div className='flex flex-col py-m px-m gap-s'>
-        <p className='body-bold line-clamp-2 leading-[19.2px] overflow-hidden text-ellipsis'>
+        <p className='label line-clamp-2 leading-[19.2px] overflow-hidden text-ellipsis'>
           {title}
         </p>
-        <div className='small-normal leading-[12.288px] lg:leading-[15.36px] flex flex-col gap-xs'>
-          <p className='small-bold text-brand-primary'>En busca de:</p>
+        <div className='caption leading-[12.288px] lg:leading-[15.36px] flex flex-col gap-xs'>
+          <p className='label text-brand-primary'>En busca de:</p>
           <p className='overflow-hidden text-ellipsis'>{description}</p>
         </div>
       </div>

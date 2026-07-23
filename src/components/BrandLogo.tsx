@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../utils/cn';
 
-const variants = cva(['font-Serif h1-bold'], {
+const variants = cva(['font-Serif h1'], {
   variants: {
     colour: {
       black: 'text-neutral-primary',

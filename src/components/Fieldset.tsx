@@ -10,11 +10,11 @@ function Fieldset({ legend, errorMsg, children }: FieldsetProps) {
   return (
     <fieldset className='flex flex-col gap-s'>
       {legend && (
-        <legend className='text-neutral-primary body-bold'>{legend}</legend>
+        <legend className='text-neutral-primary label'>{legend}</legend>
       )}
       {children ? children : <Dummy />}
       {errorMsg && (
-        <p className='text-brand-primary small-normal'>{errorMsg}</p>
+        <p className='text-brand-primary caption'>{errorMsg}</p>
       )}
     </fieldset>
   );

@@ -79,7 +79,7 @@ export default function FileUpload() {
               <Image className='text-neutral-primary group-[.is-active]:opacity-25' />
             </div>
           )}
-          <p className='h-8 group-[.is-active]:text-brand-primary group-[.is-active]:body-bold'>
+          <p className='h-8 group-[.is-active]:text-brand-primary group-[.is-active]:label'>
             {isDragActive ? 'Suelta la imagen' : 'Arrastra las imagenes aquí'}
           </p>
           <div className='flex flex-col items-center gap-s group-[.is-active]:opacity-25'>
@@ -100,7 +100,7 @@ export default function FileUpload() {
             />
           </div>
         </div>
-        <p className='text-neutral-secondary w-42 lg:w-52 small-normal group-[.is-active]:opacity-25'>
+        <p className='text-neutral-secondary w-42 lg:w-52 caption group-[.is-active]:opacity-25'>
           Subí tu imagen en formato PNG, JPG, JPEG (máximo 4 imagenes)
         </p>
       </div>

@@ -36,14 +36,14 @@ function Notification({
       <div className='flex w-60 flex-col gap-xs'>
         <div className='flex items-center gap-xs'>
           {type === 'intercambioCompleto' ? (
-            <p className='small-bold select-none'>{actions[type]}</p>
+            <p className='label select-none'>{actions[type]}</p>
           ) : (
-            <p className='small-normal select-none'>
-              <span className='small-bold'>{username}</span> {actions[type]}
+            <p className='body-normal select-none'>
+              <span className='label'>{username}</span> {actions[type]}
             </p>
           )}
         </div>
-        <p className='small-normal overflow-hidden text-neutral-tertiary text-ellipsis whitespace-nowrap select-none'>
+        <p className='body-normal overflow-hidden text-neutral-tertiary text-ellipsis whitespace-nowrap select-none'>
           Publicación: {postTitle}
         </p>
       </div>

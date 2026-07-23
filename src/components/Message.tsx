@@ -33,7 +33,7 @@ export default function Message({
       {text.length > textLength ? text.slice(0, maxLength) + '... ' : text}
       {text.length > textLength && (
         <button
-          className='font-bold cursor-pointer hover:underline'
+          className='label cursor-pointer hover:underline'
           onClick={() => setTextLength(text.length)}
         >
           Leer más
