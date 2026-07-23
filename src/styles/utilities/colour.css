@@ -15,7 +15,10 @@
   --background-color-brand-secondary: var(--red-30);
   --background-color-brand-tertiary: var(--red-10);
 
-  --background-color-miscellaneous-primary: var(--green-50);
+  --background-color-miscellaneous-lime: var(--lime);
+  --background-color-miscellaneous-sunflower: var(--sunflower);
+  --background-color-miscellaneous-vista: var(--vista);
+  --background-color-miscellaneous-sky: var(--sky);
 
   /* Text */
   --text-color-neutral-primary: var(--greyscale-100);
@@ -30,7 +33,7 @@
   --text-color-brand-primary: var(--red-50);
   --text-color-brand-inverse: var(--red-10);
 
-  --text-color-miscellaneous-primary: var(--yellow-50);
+  --text-color-miscellaneous-sunflower: var(--sunflower);
 
   /* Border */
   --border-color-neutral-primary: var(--greyscale-90);
