@@ -56,7 +56,8 @@
   line-height: normal;
 }
 
-@utility caption {
+@utility caption-* {
   font-size: var(--text-caption);
+  font-weight: --value(--font-weight-*);
   line-height: 20px;
 }
