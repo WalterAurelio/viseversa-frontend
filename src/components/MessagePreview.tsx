@@ -33,7 +33,7 @@ export default function MessagePreview({
         </div>
       )}
       <div className='flex flex-col w-49.5 lg:w-69 overflow-hidden whitespace-nowrap'>
-        <p className='body-bold truncate'>{postTitle}</p>
+        <p className='label truncate'>{postTitle}</p>
         <p className='truncate'>{message}</p>
       </div>
       <div className='h-full flex flex-col justify-start items-end gap-xs'>

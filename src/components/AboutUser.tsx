@@ -30,7 +30,7 @@ export default function AboutUser({
       </div>
       <div className='py-xl px-xl flex flex-col gap-m'>
         <div className='flex flex-col gap-xs'>
-          <p className='h6-bold'>{name}</p>
+          <p className='h4'>{name}</p>
           <Rating number={rating}></Rating>
           <p className='text-neutral-tertiary'>{biography}</p>
         </div>

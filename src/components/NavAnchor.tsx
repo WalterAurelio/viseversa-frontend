@@ -10,8 +10,9 @@ function NavAnchor({ to, children, ...props }: NavAnchorProps) {
       to={to}
       className={({ isActive }) =>
         cn({
-          'lg:hover:underline': !isActive,
+          'lg:hover:text-neutral-tertiary': !isActive,
           'text-brand-primary': isActive,
+          'label': true
         })
       }
       {...props}

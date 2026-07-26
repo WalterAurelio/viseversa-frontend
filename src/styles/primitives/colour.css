@@ -1,4 +1,17 @@
 :root {
+  --greyscale-0: #ffffff;
+  --greyscale-10: #f5f5f4;
+  --greyscale-20: #e7e5e4;
+  --greyscale-30: #d6d3d1;
+  --greyscale-40: #a8a29e;
+  --greyscale-50: #78716c;
+  --greyscale-60: #57534e;
+  --greyscale-70: #44403c;
+  --greyscale-80: #292524;
+  --greyscale-90: #1c1917;
+  --greyscale-100: #0c0a09;
+  --greyscale-999: #000000;
+
   --red-10: #ffeaec;
   --red-20: #ffbdc3;
   --red-30: #ff8f9a;
@@ -10,29 +23,9 @@
   --red-90: #6f000b;
   --red-100: #4d0008;
 
-  --yellow-10: #fff8ea;
-  --yellow-20: #ffe7bd;
-  --yellow-30: #ffd78f;
-  --yellow-40: #ffc761;
-  --yellow-50: #fcb532;
-  --yellow-60: #da9920;
-  --yellow-70: #b87d11;
-  --yellow-80: #966306;
-  --yellow-90: #744b00;
-  --yellow-100: #523500;
-
-  --green-50: #31f74b; /* Completar paleta */
-
-  --greyscale-0: #ffffff;
-  --greyscale-10: #f3f2f2;
-  --greyscale-20: #f2ecec;
-  --greyscale-30: #dbd2d3;
-  --greyscale-40: #c4b9ba;
-  --greyscale-50: #aea0a1;
-  --greyscale-60: #97888a;
-  --greyscale-70: #807273;
-  --greyscale-80: #6a5c5d;
-  --greyscale-90: #534748;
-  --greyscale-100: #3c3233;
-  --greyscale-999: #000000;
+  /*  Miscellaneous */
+  --lime: #31f74b;
+  --sunflower: #fcb532;
+  --vista: #f5f5f5;
+  --sky: #eaecff;
 }

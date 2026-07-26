@@ -7,9 +7,9 @@ const variants = cva(
   {
     variants: {
       size: {
-        M: 'body-normal gap-s',
-        S: 'small-normal gap-s',
-        XS: 'extra-small-normal gap-xs',
+        M: 'body gap-s',
+        S: 'caption-normal gap-s',
+        XS: 'caption-normal gap-xs',
       },
       customStyle: {
         fill: 'text-neutral-inverse-primary bg-neutral-inverse-primary',

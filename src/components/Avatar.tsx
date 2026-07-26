@@ -31,7 +31,7 @@ function Avatar({ img, size = 'S', hasUsername = false, username = 'john_doe_123
         ) : (
           <div
             className={cn(
-              'flex aspect-square justify-center items-center rounded-full bg-neutral-disabled',
+              'flex aspect-square justify-center items-center rounded-full bg-neutral-tertiary',
               {
                 'w-8': size === 'S',
                 'w-12': size === 'M',
@@ -46,10 +46,7 @@ function Avatar({ img, size = 'S', hasUsername = false, username = 'john_doe_123
 
         {hasStatusPin && (
           <StatusPin
-            className={cn('absolute right-0 bottom-0', {
-              'right-1.5': size === 'L',
-              'right-3 bottom-3': size === 'XL',
-            })}
+            className={'absolute right-0 bottom-0'}
             status={status}
           />
         )}

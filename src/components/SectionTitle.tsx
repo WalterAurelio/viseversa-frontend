@@ -4,9 +4,9 @@ import { cn } from '../utils/cn';
 const variants = cva([], {
   variants: {
     size: {
-      s: 'body-bold',
-      m: 'h5-bold',
-      l: 'h4-bold',
+      s: 'label',
+      m: 'h4',
+      l: 'h3',
     },
     colour: {
       black: 'text-neutral-primary',

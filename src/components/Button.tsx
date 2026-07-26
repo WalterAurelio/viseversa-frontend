@@ -5,13 +5,14 @@ import type { ReactNode } from 'react';
 const variants = cva(
   [
     'inline-flex',
-    'h-9',
+    'h-10.75',
     'min-w-28.5',
     'px-m',
     'justify-center',
     'items-center',
-    'gap-s',
-    'rounded-full',
+    'gap-xs',
+    'rounded-border-s',
+    'caption-bold lg:label'
   ],
   {
     variants: {
@@ -21,8 +22,7 @@ const variants = cva(
       },
       buttonStyle: {
         fill: 'text-neutral-inverse-primary',
-        outline: 'border-width-s lg:hover:border-width-m',
-        minimal: 'lg:hover:border-b-width-m',
+        minimal: '',
       },
       state: {
         idle: 'lg:cursor-pointer',
@@ -35,7 +35,7 @@ const variants = cva(
         buttonStyle: 'fill',
         state: 'idle',
         className:
-          'bg-neutral-inverse-primary lg:hover:bg-neutral-inverse-secondary',
+          'bg-neutral-inverse-primary lg:hover:bg-neutral-inverse-tertiary',
       },
       {
         colour: 'red',
@@ -45,21 +45,27 @@ const variants = cva(
       },
       {
         colour: 'black',
-        buttonStyle: ['outline', 'minimal'],
+        buttonStyle: ['minimal'],
         state: 'idle',
-        className: 'text-neutral-primary',
+        className: 'text-neutral-primary lg:hover:border-b-width-m',
       },
       {
         colour: 'red',
-        buttonStyle: ['outline', 'minimal'],
+        buttonStyle: ['minimal'],
         state: 'idle',
-        className: 'text-brand-primary',
+        className: 'text-brand-primary lg:hover:border-b-width-m',
       },
       {
         colour: ['black', 'red'],
-        buttonStyle: ['fill', 'outline', 'minimal'],
+        buttonStyle: ['fill'],
         state: 'disabled',
         className: 'bg-neutral-disabled text-neutral-disabled',
+      },
+      {
+        colour: ['black', 'red'],
+        buttonStyle: ['minimal'],
+        state: 'disabled',
+        className: 'text-neutral-disabled',
       },
     ],
     defaultVariants: {

@@ -15,7 +15,7 @@ export default function Comment({
 }: CommentProps) {
   return (
     <div className='flex gap-xs'>
-      <p className='body-bold'>{username}:</p>
+      <p className='label'>{username}:</p>
       <div className='flex flex-col'>
         <p>{comment}</p>
         {img ? (

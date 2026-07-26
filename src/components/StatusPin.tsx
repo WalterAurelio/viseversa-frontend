@@ -11,7 +11,7 @@ function StatusPin({ status = 'offline', className }: StatusPinProps) {
       className={cn(
         'w-3 aspect-square border-2 border-neutral-inverse-primary rounded-full',
         {
-          'bg-miscellaneous-primary': status === 'online',
+          'bg-miscellaneous-lime': status === 'online',
           'bg-neutral-inverse-tertiary': status === 'offline',
         },
         className

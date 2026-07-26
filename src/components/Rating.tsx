@@ -9,15 +9,14 @@ export default function Rating({ number }: { number: number }) {
     stars.push(
       <Star
         key={i}
-        className={`text-miscellaneous-primary ${!filled && 'fill-none'} w-3 lg:w-4`}
+        className={`text-miscellaneous-sunflower ${!filled && 'fill-none'} w-3 lg:w-4`}
       />
     );
   }
 
   return (
-    <div className='w-fit flex items-center gap-xs text-neutral-tertiary'>
+    <div className='w-fit flex items-center gap-xs'>
       {stars}
-      {number}
     </div>
   );
 }
