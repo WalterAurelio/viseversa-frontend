@@ -14,7 +14,7 @@ function Fieldset({ legend, errorMsg, children }: FieldsetProps) {
       )}
       {children ? children : <Dummy />}
       {errorMsg && (
-        <p className='text-brand-primary caption'>{errorMsg}</p>
+        <p className='text-brand-primary caption-normal'>{errorMsg}</p>
       )}
     </fieldset>
   );

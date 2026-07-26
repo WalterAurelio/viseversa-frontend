@@ -8,8 +8,8 @@ const variants = cva(
     variants: {
       size: {
         M: 'body gap-s',
-        S: 'caption gap-s',
-        XS: 'caption gap-xs',
+        S: 'caption-normal gap-s',
+        XS: 'caption-normal gap-xs',
       },
       customStyle: {
         fill: 'text-neutral-inverse-primary bg-neutral-inverse-primary',

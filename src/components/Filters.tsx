@@ -51,7 +51,7 @@ export default function Filters() {
         <div className='flex justify-between'>
           <p className='label'>Filtros</p>
           <div className='flex gap-s items-center'>
-            <button className='caption text-neutral-tertiary cursor-pointer'>
+            <button className='caption-normal text-neutral-tertiary cursor-pointer'>
               Limpiar
             </button>
             <button className='cursor-pointer' onClick={() => setIsOpen(false)}>

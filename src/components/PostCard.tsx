@@ -43,7 +43,7 @@ export default function PostCard({
         <p className='label line-clamp-2 leading-[19.2px] overflow-hidden text-ellipsis'>
           {title}
         </p>
-        <div className='caption leading-[12.288px] lg:leading-[15.36px] flex flex-col gap-xs'>
+        <div className='caption-normal leading-[12.288px] lg:leading-[15.36px] flex flex-col gap-xs'>
           <p className='label text-brand-primary'>En busca de:</p>
           <p className='overflow-hidden text-ellipsis'>{description}</p>
         </div>

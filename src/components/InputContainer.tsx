@@ -18,7 +18,7 @@ function InputContainer({ label, htmlFor, errorMsg, children }: InputContainerPr
       </label>
       {children ? children : <Dummy />}
       {errorMsg && (
-        <p className='text-brand-primary caption'>{errorMsg}</p>
+        <p className='text-brand-primary caption-normal'>{errorMsg}</p>
       )}
     </div>
   );
