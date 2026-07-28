@@ -1,10 +1,10 @@
 @theme {
   /* Border Radius */
   --radius-border-none: 0px;
-  --radius-border-xxs: 2px;
   --radius-border-xs: 4px;
   --radius-border-s: 8px;
   --radius-border-m: 12px;
-  --radius-border-l: 20px;
-  --radius-border-xl: 30px;
+  --radius-border-l: 16px;
+  --radius-border-xl: 20px;
+  --radius-border-2xl: 32px;
 }

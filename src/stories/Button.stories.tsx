@@ -61,6 +61,7 @@ export const FillDisabled: Story = {
     buttonStyle: 'fill',
     state: 'disabled',
     icon: <ArrowLeft />,
+    disabled: true
   },
 };
 
@@ -71,5 +72,6 @@ export const MinimalDisabled: Story = {
     buttonStyle: 'minimal',
     state: 'disabled',
     icon: <ArrowLeft />,
+    disabled: true
   },
 };

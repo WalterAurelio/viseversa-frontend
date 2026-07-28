@@ -5,5 +5,8 @@
   --spacing-s: 8px;
   --spacing-m: 12px;
   --spacing-l: 16px;
-  --spacing-xl: 24px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 52px;
+  --spacing-4xl: 84px;
 }

@@ -1,6 +1,6 @@
 import Avatar from './Avatar';
 import IconNText from './IconNText';
-import Rating from './Rating';
+import Rating from './RatingStars';
 import MapPin from '../assets/icons/MapPin.svg?react';
 
 type AboutUserProps = {

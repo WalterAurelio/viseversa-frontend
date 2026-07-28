@@ -24,7 +24,7 @@
   --text-color-neutral-primary: var(--greyscale-100);
   --text-color-neutral-secondary: var(--greyscale-80);
   --text-color-neutral-tertiary: var(--greyscale-70);
-  --text-color-neutral-disabled: var(--greyscale-50);
+  --text-color-neutral-disabled: var(--greyscale-40);
 
   --text-color-neutral-inverse-primary: var(--greyscale-10);
   --text-color-neutral-inverse-secondary: var(--greyscale-20);
@@ -39,8 +39,8 @@
   --border-color-neutral-primary: var(--greyscale-90);
   --border-color-neutral-secondary: var(--greyscale-70);
 
-  --border-color-neutral-inverse-primary: var(--greyscale-30);
-  --border-color-neutral-inverse-secondary: var(--greyscale-50);
+  --border-color-neutral-inverse-primary: var(--greyscale-20);
+  --border-color-neutral-inverse-secondary: var(--greyscale-40);
 
   --border-color-brand-primary: var(--red-50);
   --border-color-brand-inverse: var(--red-20);

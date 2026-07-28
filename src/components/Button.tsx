@@ -11,8 +11,8 @@ const variants = cva(
     'justify-center',
     'items-center',
     'gap-xs',
-    'rounded-border-s',
-    'caption-bold lg:label'
+    'rounded-border-l',
+    'label'
   ],
   {
     variants: {
@@ -81,11 +81,14 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
     icon?: ReactNode;
   };
 
-function Button({ colour, buttonStyle, state, icon, children, ...props }: ButtonProps) {
+function Button({ colour, buttonStyle, state, icon, children, disabled, ...props }: ButtonProps) {
+const resolvedState = disabled || state === 'disabled' ? 'disabled' : state;
+
   return (
     <button
       className={cn(variants({ colour, buttonStyle, state }))}
       {...props}
+      disabled={resolvedState === 'disabled'}
     >
       {children}
       {icon}

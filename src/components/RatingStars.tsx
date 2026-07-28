@@ -1,6 +1,6 @@
 import Star from '../assets/icons/Star.svg?react';
 
-export default function Rating({ number }: { number: number }) {
+export default function RatingStars({ number }: { number: number }) {
   const max = 5;
   const stars = [];
 
@@ -9,7 +9,7 @@ export default function Rating({ number }: { number: number }) {
     stars.push(
       <Star
         key={i}
-        className={`text-miscellaneous-sunflower ${!filled && 'fill-none'} w-3 lg:w-4`}
+        className={`text-miscellaneous-sunflower ${!filled && 'fill-none'} w-5 lg:w-6`}
       />
     );
   }
