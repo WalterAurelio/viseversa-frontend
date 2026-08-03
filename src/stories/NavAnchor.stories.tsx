@@ -13,21 +13,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const BlackMinimal: Story = {
+export const RedMinimal: Story = {
   args: {
     to: 'SectionName',
     children: 'Nav Anchor',
     navStyle: 'minimal',
-    state: 'idle',
-  },
-};
-
-export const ActiveMinimal: Story = {
-  args: {
-    to: 'SectionName',
-    children: 'Nav Anchor',
-    navStyle: 'minimal',
-    state: 'active',
   },
 };
 
@@ -36,6 +26,5 @@ export const BlackFill: Story = {
     to: 'SectionName',
     children: 'Nav Anchor',
     navStyle: 'fill',
-    state: 'idle',
   },
 };

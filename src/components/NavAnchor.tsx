@@ -11,45 +11,46 @@ const variants = cva(['label flex'], {
   variants: {
     navStyle: {
       fill: 'text-neutral-inverse-primary rounded-border-s px-l items-center justify-center min-h-8.75 w-fit',
-      minimal: '',
+      minimal: 'text-brand-primary',
     },
-    state: {
+    navState: {
       idle: 'lg:cursor-pointer',
-      active: 'text-brand-primary',
+      active: '',
     },
   },
   compoundVariants: [
     {
       navStyle: 'fill',
-      state: 'idle',
+      navState: 'idle',
       className:
         'bg-neutral-inverse-primary lg:hover:bg-neutral-inverse-tertiary',
     },
     {
-      navStyle: 'minimal',
-      state: 'idle',
-      className: 'text-neutral-primary lg:hover:text-neutral-tertiary',
+      navStyle: 'fill',
+      navState: 'active',
+      className:
+        'bg-brand-primary lg:hover:bg-neutral-inverse-tertiary',
     },
     {
       navStyle: 'minimal',
-      state: 'active'
+      navState: 'active',
+      className: 'underline underline-offset-2',
     },
   ],
   defaultVariants: {
     navStyle: 'minimal',
-    state: 'idle',
+    navState: 'idle',
   },
 });
 
 function NavAnchor({
   to,
-  state,
   navStyle,
   children,
   ...props
 }: NavAnchorProps) {
   return (
-    <NavLink to={to} className={cn(variants({ state, navStyle }))} {...props}>
+    <NavLink to={to} className={({isActive}) => cn(variants({ navState: isActive ? 'active' : 'idle', navStyle }))} {...props}>
       {children}
     </NavLink>
   );

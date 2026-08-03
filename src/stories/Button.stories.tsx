@@ -19,7 +19,7 @@ export const Black: Story = {
     children: 'Button',
     colour: 'black',
     buttonStyle: 'fill',
-    state: 'idle',
+    buttonState: 'idle',
     icon: <ArrowLeft />,
   },
 };
@@ -29,7 +29,7 @@ export const Red: Story = {
     children: 'Button',
     colour: 'red',
     buttonStyle: 'fill',
-    state: 'idle',
+    buttonState: 'idle',
     icon: <ArrowLeft />,
   },
 };
@@ -39,7 +39,7 @@ export const RedMinimal: Story = {
     children: 'Button',
     colour: 'red',
     buttonStyle: 'minimal',
-    state: 'idle',
+    buttonState: 'idle',
     icon: <ArrowLeft />,
   },
 };
@@ -49,7 +49,7 @@ export const BlackMinimal: Story = {
     children: 'Button',
     colour: 'black',
     buttonStyle: 'minimal',
-    state: 'idle',
+    buttonState: 'idle',
     icon: <ArrowLeft />,
   },
 };
@@ -59,7 +59,7 @@ export const FillDisabled: Story = {
     children: 'Button',
     colour: 'red',
     buttonStyle: 'fill',
-    state: 'disabled',
+    buttonState: 'disabled',
     icon: <ArrowLeft />,
     disabled: true
   },
@@ -70,7 +70,7 @@ export const MinimalDisabled: Story = {
     children: 'Button',
     colour: 'red',
     buttonStyle: 'minimal',
-    state: 'disabled',
+    buttonState: 'disabled',
     icon: <ArrowLeft />,
     disabled: true
   },
