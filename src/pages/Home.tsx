@@ -1,15 +1,13 @@
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase/auth';
-import { useUserStore } from '../store/userStore';
+import { useAuthStore } from '../store/authStore';
 
 function Home() {
-  const setUser = useUserStore(state => state.setUser);
-  const user = useUserStore(state => state.user);
+  const user = useAuthStore(state => state.user);
 
   const handleLogOut = async () => {
     try {
       await signOut(auth);
-      setUser(null);
       console.log('Cierre de sesión exitoso');
     } catch (error) {
       console.error('Error al cerrar sesión:', error);

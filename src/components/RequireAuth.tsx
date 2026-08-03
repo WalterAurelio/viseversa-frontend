@@ -1,14 +1,21 @@
 import { Navigate, Outlet } from 'react-router';
-import { useUserStore } from '../store/userStore';
-import { useEffect } from 'react';
+import { useAuthStore } from '../store/authStore';
 
 function RequireAuth() {
-  const user = useUserStore(state => state.user);
+  const user = useAuthStore(state => state.user);
+  const loading = useAuthStore(state => state.loading);
 
-  useEffect(() => {
-    console.log('RequireAuth user:', user);
-  }, [user]);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-  return user ? <Outlet /> : <Navigate to='/login' />;
+  return user ? (
+    <Outlet />
+  ) : (
+    <Navigate
+      to='/login'
+      replace
+    />
+  );
 }
 export default RequireAuth;

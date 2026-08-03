@@ -2,11 +2,9 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/auth';
 import { Link, useNavigate } from 'react-router';
 import { useState } from 'react';
-import { useUserStore } from '../store/userStore';
 
 function SignUp() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const setUser = useUserStore(state => state.setUser);
   const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -19,10 +17,7 @@ function SignUp() {
 
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log('Registro exitoso:', userCredential.user);
-      if (userCredential.user.email) {
-        setUser({ email: userCredential.user.email });
-        navigate('/'); // Redirige a la página de inicio después del registro exitoso
-      }
+      navigate('/'); // Redirige a la página de inicio después del registro exitoso
     } catch (error) {
       console.error('Error al registrarse:', error);
       const message = error instanceof Error ? error.message : 'Error al registrarse. Por favor, inténtalo de nuevo.';
