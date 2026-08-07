@@ -8,6 +8,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.agents
+.claude
+firebase-data
 dist
 dist-ssr
 *.local
@@ -25,3 +28,6 @@ dist-ssr
 
 *storybook.log
 storybook-static
+.env
+.env.*
+!.env.example
