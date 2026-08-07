@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 .agents
 .claude
+firebase-data
 dist
 dist-ssr
 *.local

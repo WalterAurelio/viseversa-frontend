@@ -8,7 +8,16 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   const setLoading = useAuthStore(state => state.setLoading);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => {
+    const unsubscribe = onAuthStateChanged(auth, async user => {
+      if (!user) {
+        setUser(null);
+        setLoading(false);
+        return;
+      }
+
+      const idToken = await user.getIdToken();
+      console.log('ID Token:', idToken);
+
       setUser(user);
       setLoading(false);
     });

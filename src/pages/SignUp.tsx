@@ -1,67 +1,93 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, deleteUser } from 'firebase/auth';
 import { auth } from '../firebase/auth';
+import { useRegister } from '../services/queries';
+import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router';
-import { useState } from 'react';
+
+type SignUpData = {
+  email: string;
+  contraseña: string;
+  nombre: string;
+  apellido: string;
+  nombreUsuario: string;
+};
 
 function SignUp() {
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const { register, handleSubmit } = useForm<SignUpData>();
+  const { mutateAsync } = useRegister();
   const navigate = useNavigate();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (data: SignUpData) => {
     try {
-      event.preventDefault();
-      const formData = new FormData(event.currentTarget);
-      const objectData = Object.fromEntries(formData.entries());
-      const email = objectData.email as string;
-      const password = objectData.password as string;
-
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.contraseña);
       console.log('Registro exitoso:', userCredential.user);
-      navigate('/'); // Redirige a la página de inicio después del registro exitoso
+      await mutateAsync({
+        nombre: data.nombre,
+        apellido: data.apellido,
+        nombreUsuario: data.nombreUsuario
+      });
+      navigate('/');
     } catch (error) {
       console.error('Error al registrarse:', error);
-      const message = error instanceof Error ? error.message : 'Error al registrarse. Por favor, inténtalo de nuevo.';
-      setErrorMessage(message);
+      // Si ocurre un error, elimina el usuario de Firebase Authentication
+      if (auth.currentUser) {
+        try {
+          await deleteUser(auth.currentUser);
+          console.log('Usuario eliminado de Firebase Authentication debido a un error en la creación del usuario en la base de datos.');
+        } catch (rollbackError) {
+          console.error('Error al eliminar el usuario de Firebase Authentication:', rollbackError);
+        }
+      }
+      // Muestra un mensaje de error al usuario
+      alert('Error al registrarse. Por favor, inténtalo de nuevo.');
     }
   };
 
   return (
-    <div>
+    <div className='w-3xl mx-auto mt-8 flex flex-col gap-4'>
       <form
-        className='p-8 border border-gray-300 rounded-md flex flex-col gap-2 w-3xl mx-auto mt-8'
-        onSubmit={handleSubmit}
+        className='flex flex-col border border-gray-300 rounded-md p-4 gap-2'
+        onSubmit={handleSubmit(onSubmit)}
       >
-        <legend className='text-2xl font-bold'>Registrarse</legend>
-
+        <legend>Registrarse</legend>
         <label htmlFor='email'>Email:</label>
         <input
+          {...register('email')}
           name='email'
           id='email'
           type='email'
-          className='border border-gray-300 rounded-md p-2'
         />
-        <label htmlFor='password'>Password:</label>
+        <label htmlFor='contraseña'>Contraseña:</label>
         <input
-          name='password'
-          id='password'
+          {...register('contraseña')}
+          name='contraseña'
+          id='contraseña'
           type='password'
-          className='border border-gray-300 rounded-md p-2'
         />
-        {errorMessage && <p className='text-red-500'>{errorMessage}</p>}
-        <button
-          type='submit'
-          className='bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600'
-        >
-          Registrarse
-        </button>
+        <label htmlFor='nombre'>Nombre:</label>
+        <input
+          {...register('nombre')}
+          name='nombre'
+          id='nombre'
+          type='text'
+        />
+        <label htmlFor='apellido'>Apellido:</label>
+        <input
+          {...register('apellido')}
+          name='apellido'
+          id='apellido'
+          type='text'
+        />
+        <label htmlFor='nombreUsuario'>Nombre de usuario:</label>
+        <input
+          {...register('nombreUsuario')}
+          name='nombreUsuario'
+          id='nombreUsuario'
+          type='text'
+        />
+        <button type='submit'>Registrarse</button>
       </form>
-
-      <Link
-        to='/'
-        className='block text-center mt-4 text-blue-500 hover:underline'
-      >
-        ¿Ya tienes una cuenta? Inicia sesión
-      </Link>
+      <Link to='/'>¿Ya tienes una cuenta? Inicia sesión</Link>
     </div>
   );
 }
