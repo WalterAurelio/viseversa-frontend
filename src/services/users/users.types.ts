@@ -4,5 +4,5 @@ export type UserProfileResponse = {
   nombreUsuario: string;
   fotoPerfil?: string;
   ubicacion?: string;
-  createdAt: Date;
+  createdAt: string;
 };
