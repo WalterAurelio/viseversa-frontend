@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, deleteUser } from 'firebase/auth';
 import { auth } from '../firebase/auth';
-import { useRegister } from '../services/queries';
+import { useRegister } from '../services/users/users.queries';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router';
 
