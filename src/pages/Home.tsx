@@ -2,13 +2,16 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../firebase/auth';
 import { useAuthStore } from '../store/authStore';
 import { Link } from 'react-router';
+import { useQueryClient } from '@tanstack/react-query';
 
 function Home() {
   const user = useAuthStore(state => state.user);
+  const queryClient = useQueryClient();
 
   const handleLogOut = async () => {
     try {
       await signOut(auth);
+      queryClient.removeQueries({ queryKey: ['userProfile'] });
       console.log('Cierre de sesión exitoso');
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
