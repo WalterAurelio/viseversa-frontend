@@ -1,51 +1,49 @@
 import { NavLink } from 'react-router';
 import Image from '../assets/icons/Image.svg?react';
-import MapPin from '../assets/icons/MapPin.svg?react';
-import IconNText from './IconNText';
 
 type PostCardProps = {
-  img: string;
-  alt: string;
-  title: string;
-  description: string;
-  ubication: string;
+  img?: string;
+  alt?: string;
+  title?: string;
+  description?: string;
+  // ubication: string;
 };
 
 export default function PostCard({
   img,
   alt = '',
   title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  description = 'Etiam suscipit semper nulla, ullamcorper porttitor lectus pellentesque aliquam.',
-  ubication = 'Córdoba',
+  description = 'Etiam suscipit semper nulla, ullamcorper porttitor lectus pellentesque aliquam.'
+  // ubication = 'Córdoba',
 }: PostCardProps) {
   return (
     <NavLink
-      to='/'
-      className='flex flex-col w-72 h-97.5 lg:h-102 bg-neutral-primary rounded-border-l justify-center'
+      to="/"
+      className="flex h-97.5 w-72 flex-col justify-center rounded-border-l bg-neutral-primary lg:h-102"
     >
-      <div className='relative'>
+      <div className="relative">
         {img ? (
           <img
             src={img}
             alt={alt}
-            className='relative aspect-square object-cover object-center rounded-t-border-l'
+            className="relative aspect-square rounded-t-border-l object-cover object-center"
           />
         ) : (
-          <div className='relative aspect-square bg-neutral-tertiary flex items-center justify-center rounded-t-border-l'>
-            <Image className='h-6 w-6' />
+          <div className="relative flex aspect-square items-center justify-center rounded-t-border-l bg-neutral-tertiary">
+            <Image className="h-6 w-6" />
           </div>
         )}
-        <div className='absolute bottom-3 left-3'>
-          <IconNText size='S' icon={<MapPin />} description={ubication} />
+        <div className="absolute bottom-3 left-3">
+          {/* <IconNText size='S' icon={<MapPin />} description={ubication} /> */}
         </div>
       </div>
-      <div className='flex flex-col py-m px-m gap-s'>
-        <p className='label line-clamp-2 leading-[19.2px] overflow-hidden text-ellipsis'>
+      <div className="flex flex-col gap-s px-m py-m">
+        <p className="line-clamp-2 overflow-hidden label leading-[19.2px] text-ellipsis">
           {title}
         </p>
-        <div className='caption-normal leading-[12.288px] lg:leading-[15.36px] flex flex-col gap-xs'>
-          <p className='label text-brand-primary'>En busca de:</p>
-          <p className='overflow-hidden text-ellipsis'>{description}</p>
+        <div className="flex flex-col gap-xs caption-normal leading-[12.288px] lg:leading-[15.36px]">
+          <p className="label text-brand-primary">En busca de:</p>
+          <p className="overflow-hidden text-ellipsis">{description}</p>
         </div>
       </div>
     </NavLink>
