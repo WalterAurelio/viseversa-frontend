@@ -1,12 +1,12 @@
 import './Checkbox.css';
 
-export default function Checkbox({ name = 'Label'}: { name: string }) {
+export default function Checkbox({ name = 'Label' }: { name?: string }) {
   return (
     <label
-      className='bg-neutral-primary text-neutral-secondary border-width-s border-neutral-inverse-primary p-s rounded-full caption-normal flex gap-xs items-center w-fit'
+      className="flex w-fit items-center gap-xs rounded-full border-width-s border-neutral-inverse-primary bg-neutral-primary p-s caption-normal text-neutral-secondary"
       htmlFor={name}
     >
-      <input className='input-checkbox' type='checkbox' id={name} name={name} />
+      <input className="input-checkbox" type="checkbox" id={name} name={name} />
       {name}
     </label>
   );
