@@ -3,9 +3,10 @@
   "tailwindStylesheet": "./src/index.css",
   "tailwindFunctions": ["clsx", "tailwind-merge", "cva"],
   "tabWidth": 2,
-  "singleQuote": true,
   "semi": true,
   "trailingComma": "none",
   "bracketSpacing": true,
-  "bracketSameLine": false
+  "bracketSameLine": false,
+  "singleAttributePerLine": false,
+  "printWidth": 192
 }

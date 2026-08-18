@@ -11,8 +11,10 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "emulators": "firebase emulators:start --import=./firebase-data --export-on-exit --only auth",
-    "lint-staged": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

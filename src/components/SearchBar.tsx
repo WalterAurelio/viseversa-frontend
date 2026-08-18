@@ -1,23 +1,39 @@
-import Magnifier from '../assets/icons/MagnifyingGlass.svg?react';
+import MagnifyingGlass from "../assets/icons/MagnifyingGlass.svg?react";
+import X from "../assets/icons/X.svg?react";
+import { useForm, useWatch } from "react-hook-form";
+import { cn } from "../utils/cn";
+
+type SearchBarData = {
+  query: string;
+};
 
 function SearchBar() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log('Buscando...');
+  const { register, handleSubmit, control, resetField, setFocus } = useForm<SearchBarData>();
+  const queryValue = useWatch({ name: "query", control });
+
+  const onSubmit = (data: SearchBarData) => {
+    console.log(data);
+    // Aquí puedes manejar la lógica de búsqueda con el valor de `data.query`
   };
 
   return (
     <form
-      onSubmit={handleSubmit}
-      className='flex w-full min-h-9 pr-m pl-l justify-between items-center border-width-s rounded-full border-neutral-inverse-primary'
+      className="flex h-9 w-72 items-center gap-s rounded-full border border-neutral-inverse-primary bg-neutral-primary px-l has-focus:border-brand-primary has-focus:shadow-[0_0_0_3px_#ffeaec]"
+      onSubmit={handleSubmit(onSubmit)}
     >
-      <input
-        type='search'
-        placeholder='Buscar en ViseVersa'
-        className='w-full'
-      />
-      <button type='submit' className='cursor-pointer'>
-        <Magnifier className='text-neutral-primary' />
+      <button className="text-neutral-disabled" type="submit" disabled={!queryValue}>
+        <MagnifyingGlass className="w-3.5" />
+      </button>
+      <input className="w-full text-base text-neutral-primary" type="search" placeholder="Buscar ropa, marca, talle..." {...register("query")} />
+      <button
+        className={cn("text-neutral-disabled", { hidden: !queryValue })}
+        type="button"
+        onClick={() => {
+          resetField("query");
+          setFocus("query");
+        }}
+      >
+        <X className="w-3.5" />
       </button>
     </form>
   );
