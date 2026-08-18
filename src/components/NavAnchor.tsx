@@ -1,11 +1,6 @@
 import { NavLink, type NavLinkProps } from 'react-router';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../utils/cn';
-import type { PropsWithChildren } from 'react';
-
-type NavAnchorProps = NavLinkProps &
-  PropsWithChildren &
-  VariantProps<typeof variants>;
 
 const variants = cva(['label flex'], {
   variants: {
@@ -43,14 +38,11 @@ const variants = cva(['label flex'], {
   },
 });
 
-function NavAnchor({
-  to,
-  navStyle,
-  children,
-  ...props
-}: NavAnchorProps) {
+type NavAnchorProps = NavLinkProps & VariantProps<typeof variants>;
+
+function NavAnchor({ to, navStyle, className, children, ...props }: NavAnchorProps) {
   return (
-    <NavLink to={to} className={({isActive}) => cn(variants({ navState: isActive ? 'active' : 'idle', navStyle }))} {...props}>
+    <NavLink to={to} className={({isActive}) => cn(variants({ navState: isActive ? 'active' : 'idle', navStyle, className }))} {...props}>
       {children}
     </NavLink>
   );

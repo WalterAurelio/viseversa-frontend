@@ -81,12 +81,14 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
     icon?: ReactNode;
   };
 
-function Button({ colour, buttonStyle, buttonState, icon, children, ...props }: ButtonProps) {
+function Button({ colour, buttonStyle, buttonState, disabled, icon, children, ...props }: ButtonProps) {
+  const isDisabled = disabled || buttonState === 'disabled' ? 'disabled' : buttonState;
+
   return (
     <button
       className={cn(variants({ colour, buttonStyle, buttonState }))}
+      disabled={isDisabled === 'disabled'}
       {...props}
-      disabled={buttonState === 'disabled'}
     >
       {children}
       {icon}
