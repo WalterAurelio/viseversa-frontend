@@ -12,7 +12,7 @@ type AvatarProps = {
 
 function Avatar({ img, size = 'S', hasUsername = false, username = 'john_doe_123', hasStatusPin = false, status }: AvatarProps) {
   return (
-    <div className='flex items-center gap-m'>
+    <div className='flex items-center gap-s'>
       <div className='relative'>
         {img ? (
           <img
@@ -51,7 +51,7 @@ function Avatar({ img, size = 'S', hasUsername = false, username = 'john_doe_123
           />
         )}
       </div>
-      {hasUsername && <p>{username}</p>}
+      {hasUsername && <p className='label'>{username}</p>}
     </div>
   );
 }

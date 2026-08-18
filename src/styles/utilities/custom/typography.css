@@ -32,7 +32,7 @@
 }
 
 @utility h4 {
-  font-size: var(--text-body);
+  font-size: var(--text-h5);
   font-weight: bold;
   line-height: normal;
 
@@ -41,8 +41,9 @@
   }
 }
 
-@utility body {
-  font-size: var(--text-caption);
+@utility body-* {
+  font-size: var(--text-small);
+  font-weight: --value(--font-weight-*);
   line-height: 25px;
 
   @variant desktop {
@@ -51,13 +52,21 @@
 }
 
 @utility label {
-  font-size: var(--text-label);
+  font-size: var(--text-small);
   font-weight: bold;
   line-height: normal;
+
+  @variant desktop {
+    font-size: var(--text-body);
+  }
 }
 
 @utility caption-* {
-  font-size: var(--text-caption);
+  font-size: var(--text-extra-small);
   font-weight: --value(--font-weight-*);
   line-height: 20px;
+
+  @variant desktop {
+    font-size: var(--text-small);
+  }
 }

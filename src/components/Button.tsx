@@ -11,8 +11,8 @@ const variants = cva(
     'justify-center',
     'items-center',
     'gap-xs',
-    'rounded-border-s',
-    'caption-bold lg:label'
+    'rounded-border-l',
+    'label'
   ],
   {
     variants: {
@@ -24,7 +24,7 @@ const variants = cva(
         fill: 'text-neutral-inverse-primary',
         minimal: '',
       },
-      state: {
+      buttonState: {
         idle: 'lg:cursor-pointer',
         disabled: '',
       },
@@ -33,45 +33,45 @@ const variants = cva(
       {
         colour: 'black',
         buttonStyle: 'fill',
-        state: 'idle',
+        buttonState: 'idle',
         className:
           'bg-neutral-inverse-primary lg:hover:bg-neutral-inverse-tertiary',
       },
       {
         colour: 'red',
         buttonStyle: 'fill',
-        state: 'idle',
+        buttonState: 'idle',
         className: 'bg-brand-primary lg:hover:bg-brand-secondary',
       },
       {
         colour: 'black',
         buttonStyle: ['minimal'],
-        state: 'idle',
+        buttonState: 'idle',
         className: 'text-neutral-primary lg:hover:border-b-width-m',
       },
       {
         colour: 'red',
         buttonStyle: ['minimal'],
-        state: 'idle',
+        buttonState: 'idle',
         className: 'text-brand-primary lg:hover:border-b-width-m',
       },
       {
         colour: ['black', 'red'],
         buttonStyle: ['fill'],
-        state: 'disabled',
+        buttonState: 'disabled',
         className: 'bg-neutral-disabled text-neutral-disabled',
       },
       {
         colour: ['black', 'red'],
         buttonStyle: ['minimal'],
-        state: 'disabled',
+        buttonState: 'disabled',
         className: 'text-neutral-disabled',
       },
     ],
     defaultVariants: {
       colour: 'black',
       buttonStyle: 'fill',
-      state: 'idle',
+      buttonState: 'idle',
     },
   }
 );
@@ -81,10 +81,13 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
     icon?: ReactNode;
   };
 
-function Button({ colour, buttonStyle, state, icon, children, ...props }: ButtonProps) {
+function Button({ colour, buttonStyle, buttonState, disabled, icon, children, ...props }: ButtonProps) {
+  const isDisabled = disabled || buttonState === 'disabled' ? 'disabled' : buttonState;
+
   return (
     <button
-      className={cn(variants({ colour, buttonStyle, state }))}
+      className={cn(variants({ colour, buttonStyle, buttonState }))}
+      disabled={isDisabled === 'disabled'}
       {...props}
     >
       {children}

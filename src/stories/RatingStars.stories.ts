@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import Rating from '../components/Rating';
+import RatingStars from '../components/RatingStars';
 
 const meta = {
-  title: 'Components/Rating',
-  component: Rating,
+  title: 'Components/RatingStars',
+  component: RatingStars,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Rating>;
+} satisfies Meta<typeof RatingStars>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
