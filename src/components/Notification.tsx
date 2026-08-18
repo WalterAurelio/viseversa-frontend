@@ -1,29 +1,24 @@
-import Trash from '../assets/icons/Trash.svg?react';
-import Image from '../assets/icons/Image.svg?react';
+import Trash from "../assets/icons/Trash.svg?react";
+import Image from "../assets/icons/Image.svg?react";
 
 const actions: {
   comentario: string;
   solicitudIntercambio: string;
   intercambioCompleto: string;
 } = {
-  comentario: 'te comentó',
-  solicitudIntercambio: 'solicita un intercambio',
-  intercambioCompleto: 'Intercambio exitoso'
+  comentario: "te comentó",
+  solicitudIntercambio: "solicita un intercambio",
+  intercambioCompleto: "Intercambio exitoso"
 };
 
 export type NotificationProps = {
   username?: string;
-  type?: 'comentario' | 'solicitudIntercambio' | 'intercambioCompleto';
+  type?: "comentario" | "solicitudIntercambio" | "intercambioCompleto";
   postTitle?: string;
   imgPost?: string;
 };
 
-function Notification({
-  username = 'John_Doe123',
-  imgPost = '',
-  type = 'comentario',
-  postTitle = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-}: NotificationProps) {
+function Notification({ username = "John_Doe123", imgPost = "", type = "comentario", postTitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit." }: NotificationProps) {
   return (
     <div className="flex w-fit items-center justify-center gap-s p-l lg:hover:bg-brand-tertiary">
       {imgPost ? (
@@ -35,17 +30,15 @@ function Notification({
       )}
       <div className="flex w-60 flex-col gap-xs">
         <div className="flex items-center gap-xs">
-          {type === 'intercambioCompleto' ? (
+          {type === "intercambioCompleto" ? (
             <p className="label select-none">{actions[type]}</p>
           ) : (
-            <p className="body-normal select-none">
+            <p className="body-default select-none">
               <span className="label">{username}</span> {actions[type]}
             </p>
           )}
         </div>
-        <p className="body-normal overflow-hidden text-ellipsis whitespace-nowrap text-neutral-tertiary select-none">
-          Publicación: {postTitle}
-        </p>
+        <p className="overflow-hidden body-default text-ellipsis whitespace-nowrap text-neutral-tertiary select-none">Publicación: {postTitle}</p>
       </div>
       <button name="delete" className="lg:cursor-pointer">
         <Trash />

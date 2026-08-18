@@ -1,9 +1,6 @@
 @theme {
-  /* Font Family */
-  --font-serif: 'Charmonman', serif;
-  --font-sans-serif: 'Raleway', sans-serif;
+  --font-sans-serif: "Raleway", sans-serif;
 
-  /* Font Size */
   --text-h1: 61.04px;
   --text-h2: 48.83px;
   --text-h3: 39.06px;
@@ -12,5 +9,5 @@
   --text-h6: 20px;
   --text-body: 16px;
   --text-small: 12.8px;
-  --text-extra-small: 10.24px;
+  --text-extra-small: 10.24px; /* ¿No lo usaremos? Demasiado pequeño */
 }
