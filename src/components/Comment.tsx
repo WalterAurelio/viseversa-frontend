@@ -1,4 +1,4 @@
-import Image from '../assets/icons/Image.svg?react';
+import Image from "../assets/icons/Image.svg?react";
 
 type CommentProps = {
   username?: string;
@@ -7,26 +7,17 @@ type CommentProps = {
   alt?: string;
 };
 
-export default function Comment({
-  username = 'john_doe_123',
-  comment = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  img,
-  alt = '',
-}: CommentProps) {
+export default function Comment({ username = "john_doe_123", comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", img, alt = "" }: CommentProps) {
   return (
-    <div className='flex gap-xs'>
-      <p className='label'>{username}:</p>
-      <div className='flex flex-col'>
+    <div className="flex gap-xs">
+      <p className="label">{username}:</p>
+      <div className="flex flex-col">
         <p>{comment}</p>
         {img ? (
-          <img
-            className='max-w-50 aspect-3/4 object-cover object-center'
-            src={img}
-            alt={alt}
-          />
+          <img className="aspect-3/4 max-w-50 object-cover object-center" src={img} alt={alt} />
         ) : (
-          <div className='max-w-50 aspect-3/4 bg-neutral-tertiary flex items-center justify-center'>
-            <Image className='h-6 w-6' />
+          <div className="flex aspect-3/4 max-w-50 items-center justify-center bg-neutral-tertiary">
+            <Image className="w-4.5" />
           </div>
         )}
       </div>

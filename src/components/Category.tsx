@@ -15,7 +15,7 @@ export default function Category({ name, imageUrl }: CategoryProps) {
         <img className="w-12 lg:w-14" src={imageUrl} alt={name} />
       ) : (
         <div className="flex aspect-square h-12 items-center justify-center bg-neutral-disabled lg:h-14">
-          <Image />
+          <Image className="w-4.5" />
         </div>
       )}
       <p className="w-full text-center">{name}</p>
