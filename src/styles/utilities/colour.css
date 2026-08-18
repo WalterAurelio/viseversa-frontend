@@ -1,4 +1,4 @@
-@import '../primitives/colour.css';
+@import "../primitives/colour.css";
 
 @theme {
   /* Background */
@@ -11,37 +11,35 @@
   --background-color-neutral-inverse-secondary: var(--greyscale-90);
   --background-color-neutral-inverse-tertiary: var(--greyscale-80);
 
-  --background-color-brand-primary: var(--red-50);
-  --background-color-brand-secondary: var(--red-40);
-  --background-color-brand-tertiary: var(--red-20);
-
-  --background-color-miscellaneous-lime: var(--lime);
-  --background-color-miscellaneous-sunflower: var(--sunflower);
-  --background-color-miscellaneous-vista: var(--vista);
-  --background-color-miscellaneous-sky: var(--sky);
+  --background-color-brand-primary: var(--crimson-50);
+  --background-color-brand-secondary: var(--crimson-20);
+  --background-color-brand-tertiary: var(--crimson-10);
 
   /* Text */
-  --text-color-neutral-primary: var(--greyscale-100);
-  --text-color-neutral-secondary: var(--greyscale-80);
-  --text-color-neutral-tertiary: var(--greyscale-70);
+  --text-color-neutral-primary: var(--greyscale-90);
+  --text-color-neutral-secondary: var(--greyscale-70);
+  --text-color-neutral-tertiary: var(--greyscale-50);
   --text-color-neutral-disabled: var(--greyscale-40);
 
   --text-color-neutral-inverse-primary: var(--greyscale-10);
   --text-color-neutral-inverse-secondary: var(--greyscale-20);
   --text-color-neutral-inverse-tertiary: var(--greyscale-30);
 
-  --text-color-brand-primary: var(--red-50);
-  --text-color-brand-inverse: var(--red-10);
-
-  --text-color-miscellaneous-sunflower: var(--sunflower);
+  --text-color-brand-primary: var(--crimson-50);
+  --text-color-brand-inverse: var(--crimson-10);
 
   /* Border */
-  --border-color-neutral-primary: var(--greyscale-90);
-  --border-color-neutral-secondary: var(--greyscale-70);
+  --border-color-neutral-primary: var(--greyscale-80);
+  --border-color-neutral-secondary: var(--greyscale-60);
 
   --border-color-neutral-inverse-primary: var(--greyscale-20);
   --border-color-neutral-inverse-secondary: var(--greyscale-40);
 
-  --border-color-brand-primary: var(--red-50);
-  --border-color-brand-inverse: var(--red-20);
+  --border-color-brand-primary: var(--crimson-50);
+  --border-color-brand-inverse: var(--crimson-20);
+
+  /* Miscellaneous */
+  --color-lavender: var(--lavender);
+  --color-lime: var(--lime);
+  --color-sunflower: var(--sunflower);
 }

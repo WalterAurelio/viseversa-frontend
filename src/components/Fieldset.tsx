@@ -1,5 +1,5 @@
-import type { PropsWithChildren } from 'react';
-import Dummy from './Dummy';
+import type { PropsWithChildren } from "react";
+import Dummy from "./Dummy";
 
 type FieldsetProps = PropsWithChildren & {
   legend?: string;
@@ -8,14 +8,10 @@ type FieldsetProps = PropsWithChildren & {
 
 function Fieldset({ legend, errorMsg, children }: FieldsetProps) {
   return (
-    <fieldset className='flex flex-col gap-s'>
-      {legend && (
-        <legend className='text-neutral-primary label'>{legend}</legend>
-      )}
+    <fieldset className="flex flex-col gap-s">
+      {legend && <legend className="label text-neutral-primary">{legend}</legend>}
       {children ? children : <Dummy />}
-      {errorMsg && (
-        <p className='text-brand-primary caption-normal'>{errorMsg}</p>
-      )}
+      {errorMsg && <p className="caption-default text-brand-primary">{errorMsg}</p>}
     </fieldset>
   );
 }

@@ -1,5 +1,5 @@
-import type { PropsWithChildren } from 'react';
-import Dummy from './Dummy';
+import type { PropsWithChildren } from "react";
+import Dummy from "./Dummy";
 
 type InputContainerProps = PropsWithChildren & {
   label?: string;
@@ -9,17 +9,12 @@ type InputContainerProps = PropsWithChildren & {
 
 function InputContainer({ label, htmlFor, errorMsg, children }: InputContainerProps) {
   return (
-    <div className='flex flex-col gap-s'>
-      <label
-        htmlFor={htmlFor}
-        className='text-neutral-primary label select-none'
-      >
+    <div className="flex flex-col gap-s">
+      <label htmlFor={htmlFor} className="label text-neutral-primary select-none">
         {label}
       </label>
       {children ? children : <Dummy />}
-      {errorMsg && (
-        <p className='text-brand-primary caption-normal'>{errorMsg}</p>
-      )}
+      {errorMsg && <p className="caption-default text-brand-primary">{errorMsg}</p>}
     </div>
   );
 }

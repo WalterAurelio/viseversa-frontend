@@ -1,16 +1,11 @@
-@import '../utilities/breakpoint.css';
-@import '../utilities/colour.css';
-@import '../utilities/typography.css';
+@import "../utilities/breakpoint.css";
+@import "../utilities/colour.css";
+@import "../utilities/typography.css";
 
 body {
   font-family: var(--font-sans-serif);
   color: var(--text-color-neutral-primary);
-  font-weight: normal;
-  font-size: var(--text-small);
-
-  @variant desktop {
-    font-size: var(--text-body);
-  }
+  font-size: var(--text-body);
 }
 
 input,
@@ -18,12 +13,12 @@ textarea {
   outline: none;
 
   &::placeholder {
-    color: var(--text-color-neutral-tertiary);
+    color: var(--text-color-neutral-disabled);
   }
 }
 
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
   display: none;
 }
 
@@ -31,6 +26,7 @@ textarea {
   resize: none;
 }
 
+/*  */
 .select-form {
   appearance: base-select;
 
