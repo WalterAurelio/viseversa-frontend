@@ -24,7 +24,7 @@ function SearchBar() {
       <button className="text-neutral-disabled" type="submit" disabled={!queryValue}>
         <MagnifyingGlass className="w-3.5" />
       </button>
-      <input className="w-full text-base text-neutral-primary" type="search" placeholder="Buscar ropa, marca, talle..." {...register("query")} />
+      <input className="w-full text-neutral-primary" type="search" placeholder="Buscar ropa, marca, talle..." {...register("query")} />
       <button
         className={cn("text-neutral-disabled", { hidden: !queryValue })}
         type="button"

@@ -1,50 +1,27 @@
-import { NavLink, type NavLinkProps } from 'react-router';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '../utils/cn';
+import { Link, type LinkProps } from "react-router";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../utils/cn";
 
-const variants = cva(['label flex'], {
+const navAnchorVariants = cva("inline-flex items-center justify-center label-default text-brand-primary", {
   variants: {
     navStyle: {
-      fill: 'text-neutral-inverse-primary rounded-border-s px-l items-center justify-center min-h-8.75 w-fit',
-      minimal: 'text-brand-primary',
-    },
-    navState: {
-      idle: 'lg:cursor-pointer',
-      active: '',
-    },
+      fill: "h-10 rounded-full bg-brand-primary px-xl text-neutral-inverse-primary lg:cursor-pointer lg:hover:bg-brand-secondary",
+      minimal: "p-none lg:cursor-pointer lg:hover:underline"
+    }
   },
-  compoundVariants: [
-    {
-      navStyle: 'fill',
-      navState: 'idle',
-      className:
-        'bg-neutral-inverse-primary lg:hover:bg-neutral-inverse-tertiary',
-    },
-    {
-      navStyle: 'fill',
-      navState: 'active',
-      className:
-        'bg-brand-primary lg:hover:bg-neutral-inverse-tertiary',
-    },
-    {
-      navStyle: 'minimal',
-      navState: 'active',
-      className: 'underline underline-offset-2',
-    },
-  ],
   defaultVariants: {
-    navStyle: 'minimal',
-    navState: 'idle',
-  },
+    navStyle: "fill"
+  }
 });
 
-type NavAnchorProps = NavLinkProps & VariantProps<typeof variants>;
+type NavAnchorProps = LinkProps & VariantProps<typeof navAnchorVariants>;
 
-function NavAnchor({ to, navStyle, className, children, ...props }: NavAnchorProps) {
+function NavAnchor({ className, navStyle, children = "Label", ...props }: NavAnchorProps) {
   return (
-    <NavLink to={to} className={({isActive}) => cn(variants({ navState: isActive ? 'active' : 'idle', navStyle, className }))} {...props}>
+    <Link className={cn(navAnchorVariants({ navStyle }), className)} {...props}>
       {children}
-    </NavLink>
+    </Link>
   );
 }
+
 export default NavAnchor;

@@ -1,47 +1,37 @@
-import User from "../assets/icons/User.svg?react";
 import { cn } from "../utils/cn";
 import StatusPin from "./StatusPin";
+import User from "../assets/icons/User.svg?react";
 
 type AvatarProps = {
-  size?: "S" | "M" | "L" | "XL";
+  className?: string;
+  hasStatus?: boolean;
   hasUsername?: boolean;
+  profilePic?: string;
+  size?: "S" | "M" | "L" | "XL";
   username?: string;
-  hasStatusPin?: boolean;
-  img?: string;
-} & Omit<React.ComponentProps<typeof StatusPin>, "className">;
+};
 
-function Avatar({ img, size = "S", hasUsername = false, username = "john_doe_123", hasStatusPin = false, status }: AvatarProps) {
+const avatarSizes = {
+  S: "size-10",
+  M: "size-12",
+  L: "size-17",
+  XL: "size-36"
+} as const;
+
+export default function Avatar({ className, hasStatus = true, hasUsername = true, profilePic, size = "S", username = "johnDoe123" }: AvatarProps) {
   return (
-    <div className="flex items-center gap-s">
-      <div className="relative">
-        {img ? (
-          <img
-            src={img}
-            alt="User profile pic"
-            className={cn("aspect-square rounded-full object-cover object-center", {
-              "w-8": size === "S",
-              "w-12": size === "M",
-              "w-17": size === "L",
-              "w-30.5": size === "XL"
-            })}
-          />
+    <div className={cn("relative flex items-center gap-m", className)}>
+      <div className={cn("relative shrink-0 overflow-visible rounded-full", avatarSizes[size])}>
+        {profilePic ? (
+          <img className="size-full rounded-full object-cover" src={profilePic} alt={username ? `${username}'s profile` : "Profile picture"} />
         ) : (
-          <div
-            className={cn("flex aspect-square items-center justify-center rounded-full bg-neutral-tertiary", {
-              "w-8": size === "S",
-              "w-12": size === "M",
-              "w-17": size === "L",
-              "w-30.5": size === "XL"
-            })}
-          >
+          <div className="flex size-full items-center justify-center rounded-full bg-neutral-disabled" aria-label="No profile picture">
             <User className="w-4.5" />
           </div>
         )}
-
-        {hasStatusPin && <StatusPin className={"absolute right-0 bottom-0"} status={status} />}
+        {hasStatus && <StatusPin className="absolute right-0 bottom-0" />}
       </div>
-      {hasUsername && <p className="label">{username}</p>}
+      {hasUsername && <p className="label-default wrap-break-word">{username}</p>}
     </div>
   );
 }
-export default Avatar;
