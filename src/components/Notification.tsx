@@ -1,48 +1,80 @@
-import Trash from "../assets/icons/Trash.svg?react";
-import Image from "../assets/icons/Image.svg?react";
+import { cn } from "../utils/cn";
+import Check from "../assets/icons/Check.svg?react";
+import ChatCircle from "../assets/icons/ChatCircle.svg?react";
+import Star from "../assets/icons/Star-1.svg?react";
+import Swap from "../assets/icons/Swap.svg?react";
+import X from "../assets/icons/X.svg?react";
+import Avatar from "./Avatar";
+import type { WithClassName } from "../types/WithClassName";
+import { useTimeAgo } from "react-time-ago";
 
-const actions: {
-  comentario: string;
-  solicitudIntercambio: string;
-  intercambioCompleto: string;
-} = {
-  comentario: "te comentó",
-  solicitudIntercambio: "solicita un intercambio",
-  intercambioCompleto: "Intercambio exitoso"
+type NotificationVariant = "request" | "comment" | "accepted" | "review";
+
+export type TNotification = {
+  id: string;
+  message: string;
+  createdAt: string;
+  variant: NotificationVariant | "Request" | "Comment" | "Accepted" | "Review";
+  profilePic?: string;
+  isRead: boolean;
+  // onDismiss?: () => void;
 };
 
-export type NotificationProps = {
-  username?: string;
-  type?: "comentario" | "solicitudIntercambio" | "intercambioCompleto";
-  postTitle?: string;
-  imgPost?: string;
-};
+type NotificationProps = { notification: TNotification } & WithClassName;
 
-function Notification({ username = "John_Doe123", imgPost = "", type = "comentario", postTitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit." }: NotificationProps) {
+const variantStyles = {
+  request: {
+    icon: Swap,
+    badgeClass: "bg-brand-primary",
+    textClass: "text-brand-primary"
+  },
+  comment: {
+    icon: ChatCircle,
+    badgeClass: "bg-lavender",
+    textClass: "text-lavender"
+  },
+  accepted: {
+    icon: Check,
+    badgeClass: "bg-lime",
+    textClass: "text-lime"
+  },
+  review: {
+    icon: Star,
+    badgeClass: "bg-sunflower",
+    textClass: "text-sunflower"
+  }
+} as const;
+
+function Notification({ notification, className /* onDismiss, */ }: NotificationProps) {
+  const { id, message, createdAt, variant, profilePic, isRead } = notification;
+  const normalizedVariant = variant.toLowerCase() as NotificationVariant;
+  const currentVariant = variantStyles[normalizedVariant] ?? variantStyles.request;
+  const Icon = currentVariant.icon;
+  const timeAgo = useTimeAgo({ date: new Date(createdAt), locale: "es" });
+
   return (
-    <div className="flex w-fit items-center justify-center gap-s p-l lg:hover:bg-brand-tertiary">
-      {imgPost ? (
-        <img src={imgPost} alt={`Imagen de ${postTitle}`} />
-      ) : (
-        <div className="flex h-7 w-5.5 items-center justify-center bg-neutral-disabled lg:h-8.5 lg:w-7">
-          <Image />
+    <div className={cn("relative flex h-19.5 w-90 items-start gap-m bg-neutral-primary px-l py-m", className)}>
+      {!isRead && <div className="absolute top-1/2 left-1.5 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-brand-primary" />}
+
+      <div className="relative flex shrink-0 flex-col items-start self-stretch">
+        <Avatar profilePic={profilePic} hasStatus={false} hasUsername={false} />
+        <div className={cn("absolute -right-1 bottom-0 flex h-4 w-4 items-center justify-center rounded-full text-neutral-inverse-primary", currentVariant.badgeClass)}>
+          <Icon className="h-3 w-3" />
         </div>
-      )}
-      <div className="flex w-60 flex-col gap-xs">
-        <div className="flex items-center gap-xs">
-          {type === "intercambioCompleto" ? (
-            <p className="label select-none">{actions[type]}</p>
-          ) : (
-            <p className="body-default select-none">
-              <span className="label">{username}</span> {actions[type]}
-            </p>
-          )}
-        </div>
-        <p className="overflow-hidden body-default text-ellipsis whitespace-nowrap text-neutral-tertiary select-none">Publicación: {postTitle}</p>
       </div>
-      <button name="delete" className="lg:cursor-pointer">
-        <Trash />
-      </button>
+
+      <div className="relative flex w-full flex-col items-start pr-2xl">
+        <p className={cn("line-clamp-2 text-ellipsis text-neutral-primary", { "caption-default": isRead, "caption-strong": !isRead })}>{message}</p>
+        <p className={cn("mt-1 block caption-default", currentVariant.textClass)}>{timeAgo.formattedDate}</p>
+        <button
+          type="button"
+          aria-label="Dismiss notification"
+          onClick={() => console.log(`Marking notification with id: ${id} as read`)}
+          className={cn("absolute top-0 right-0 flex cursor-pointer items-center justify-center text-neutral-disabled hover:text-neutral-secondary", { hidden: isRead })}
+        >
+          <X className="h-3.5 w-3.5" />
+        </button>
+      </div>
     </div>
   );
 }
