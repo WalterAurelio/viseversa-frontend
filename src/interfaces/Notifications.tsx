@@ -1,10 +1,12 @@
 import Notification, { type TNotification } from "../components/Notification";
 import { cn } from "../utils/cn";
-import notifications from "../json/notifications.json";
 
-type NotificationsProps = React.ComponentProps<"div">;
+type NotificationsProps = React.ComponentProps<"div"> & {
+  notifications: TNotification[];
+  isNotificationsOpen?: boolean;
+};
 
-function Notifications({ className, ...props }: NotificationsProps) {
+function Notifications({ notifications, className, ...props }: NotificationsProps) {
   const unreadNotifications = notifications.filter((notification) => !notification.isRead);
   const unreadCount = unreadNotifications.length;
   const markAllAsRead = () => {
@@ -25,10 +27,12 @@ function Notifications({ className, ...props }: NotificationsProps) {
         </button>
       </header>
 
-      {notifications.map((notification, index) => {
-        const castedNotification = { ...notification, variant: notification.variant as TNotification["variant"] };
-        return <Notification key={index} notification={castedNotification} className="w-full" />;
-      })}
+      <div className="flex max-h-72 w-full flex-col items-start overflow-y-auto">
+        {notifications.map((notification, index) => {
+          const castedNotification = { ...notification, variant: notification.variant as TNotification["variant"] };
+          return <Notification key={index} notification={castedNotification} className="w-full" />;
+        })}
+      </div>
     </div>
   );
 }

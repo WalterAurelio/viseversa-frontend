@@ -65,7 +65,7 @@ function Notification({ notification, className /* onDismiss, */ }: Notification
 
       <div className="relative flex w-full flex-col items-start pr-2xl">
         <p className={cn("line-clamp-2 text-ellipsis text-neutral-primary", { "caption-default": isRead, "caption-strong": !isRead })}>{message}</p>
-        <p className={cn("mt-1 block caption-default", currentVariant.textClass)}>{timeAgo.formattedDate}</p>
+        <p className={cn("caption-default", currentVariant.textClass)}>{timeAgo.formattedDate}</p>
         <button
           type="button"
           aria-label="Dismiss notification"
