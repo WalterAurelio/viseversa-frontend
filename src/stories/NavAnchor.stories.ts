@@ -4,24 +4,22 @@ import NavAnchor from "../components/NavAnchor";
 const meta = {
   title: "Components/NavAnchor",
   component: NavAnchor,
-  parameters: {
-    layout: "centered"
+  args: {
+    to: "/profile",
+    navStyle: "fill"
   },
-  tags: ["autodocs"]
+  argTypes: {
+    navStyle: {
+      control: { type: "radio" },
+      options: ["fill", "minimal"]
+    },
+    children: {
+      control: { type: "text" }
+    }
+  }
 } satisfies Meta<typeof NavAnchor>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Fill: Story = {
-  args: {
-    to: "/profile"
-  }
-};
-
-export const Minimal: Story = {
-  args: {
-    to: "/profile",
-    navStyle: "minimal"
-  }
-};
+export const Default: Story = {};

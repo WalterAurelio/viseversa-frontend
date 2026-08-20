@@ -1,17 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Notification, { type TNotification } from "../components/Notification";
 import notificationsJson from "../json/notifications.json";
-import "react-time-ago/locale/es";
 
 const notifications = notificationsJson as TNotification[];
 
 const meta = {
   title: "Components/Notification",
-  component: Notification,
-  parameters: {
-    layout: "centered"
-  },
-  tags: ["autodocs"]
+  component: Notification
 } satisfies Meta<typeof Notification>;
 
 export default meta;

@@ -1,14 +1,13 @@
 import { cn } from "../utils/cn";
 import StatusPin from "./StatusPin";
 import User from "../assets/icons/User.svg?react";
+import { useGetUserProfile } from "../services/users/users.queries";
 
 type AvatarProps = {
   className?: string;
   hasStatus?: boolean;
   hasUsername?: boolean;
-  profilePic?: string;
   size?: "S" | "M" | "L" | "XL";
-  username?: string;
 };
 
 const avatarSizes = {
@@ -18,12 +17,15 @@ const avatarSizes = {
   XL: "size-36"
 } as const;
 
-export default function Avatar({ className, hasStatus = true, hasUsername = true, profilePic, size = "S", username = "johnDoe123" }: AvatarProps) {
+export default function Avatar({ className, hasStatus = true, hasUsername = true, size = "S" }: AvatarProps) {
+  const { data } = useGetUserProfile();
+  const { nombreUsuario, fotoPerfil } = data;
+
   return (
     <div className={cn("relative flex items-center gap-m", className)}>
       <div className={cn("relative shrink-0 overflow-visible rounded-full", avatarSizes[size])}>
-        {profilePic ? (
-          <img className="size-full rounded-full object-cover" src={profilePic} alt={username ? `${username}'s profile` : "Profile picture"} />
+        {fotoPerfil ? (
+          <img className="size-full rounded-full object-cover" src={fotoPerfil} alt={nombreUsuario ? `${nombreUsuario}'s profile` : "Profile picture"} />
         ) : (
           <div className="flex size-full items-center justify-center rounded-full bg-neutral-disabled" aria-label="No profile picture">
             <User className="w-4.5" />
@@ -31,7 +33,7 @@ export default function Avatar({ className, hasStatus = true, hasUsername = true
         )}
         {hasStatus && <StatusPin className="absolute right-0 bottom-0" />}
       </div>
-      {hasUsername && <p className="label-default wrap-break-word">{username}</p>}
+      {hasUsername && <p className="label-default wrap-break-word">{nombreUsuario}</p>}
     </div>
   );
 }

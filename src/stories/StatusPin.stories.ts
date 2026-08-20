@@ -3,11 +3,7 @@ import StatusPin from "../components/StatusPin";
 
 const meta = {
   title: "Components/StatusPin",
-  component: StatusPin,
-  parameters: {
-    layout: "centered"
-  },
-  tags: ["autodocs"]
+  component: StatusPin
 } satisfies Meta<typeof StatusPin>;
 
 export default meta;

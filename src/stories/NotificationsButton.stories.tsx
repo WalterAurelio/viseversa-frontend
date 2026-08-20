@@ -3,19 +3,11 @@ import NotificationsButton from "../components/NotificationsButton";
 
 const meta = {
   title: "Components/NotificationsButton",
-  component: NotificationsButton,
-  parameters: {
-    layout: "centered"
-  },
-  tags: ["autodocs"]
+  component: NotificationsButton
 } satisfies Meta<typeof NotificationsButton>;
 
 export default meta;
 
 type Story = StoryObj<typeof NotificationsButton>;
 
-export const Primary: Story = {
-  args: {
-    onClick: () => {}
-  }
-};
+export const Default: Story = {};

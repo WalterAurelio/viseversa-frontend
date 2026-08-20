@@ -3,7 +3,7 @@ import { cn } from "../utils/cn";
 
 type NotificationsProps = React.ComponentProps<"div"> & {
   notifications: TNotification[];
-  isNotificationsOpen?: boolean;
+  // isNotificationsOpen?: boolean;
 };
 
 function Notifications({ notifications, className, ...props }: NotificationsProps) {

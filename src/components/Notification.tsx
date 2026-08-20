@@ -4,9 +4,9 @@ import ChatCircle from "../assets/icons/ChatCircle.svg?react";
 import Star from "../assets/icons/Star-1.svg?react";
 import Swap from "../assets/icons/Swap.svg?react";
 import X from "../assets/icons/X.svg?react";
-import Avatar from "./Avatar";
 import type { WithClassName } from "../types/WithClassName";
 import { useTimeAgo } from "react-time-ago";
+import User from "../assets/icons/User.svg?react";
 
 type NotificationVariant = "request" | "comment" | "accepted" | "review";
 
@@ -57,7 +57,14 @@ function Notification({ notification, className /* onDismiss, */ }: Notification
       {!isRead && <div className="absolute top-1/2 left-1.5 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-brand-primary" />}
 
       <div className="relative flex shrink-0 flex-col items-start self-stretch">
-        <Avatar profilePic={profilePic} hasStatus={false} hasUsername={false} />
+        {profilePic ? (
+          <img className="size-10 rounded-full object-cover" src={profilePic} alt="Profile picture" />
+        ) : (
+          <div className="flex size-10 items-center justify-center rounded-full bg-neutral-disabled" aria-label="No profile picture">
+            <User className="w-4.5" />
+          </div>
+        )}
+        {/* <Avatar profilePic={profilePic} hasStatus={false} hasUsername={false} /> */}
         <div className={cn("absolute -right-1 bottom-0 flex h-4 w-4 items-center justify-center rounded-full text-neutral-inverse-primary", currentVariant.badgeClass)}>
           <Icon className="h-3 w-3" />
         </div>
