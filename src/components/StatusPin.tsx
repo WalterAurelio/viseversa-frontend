@@ -1,22 +1,6 @@
-import type { WithClassName } from '../types/WithClassName';
-import { cn } from '../utils/cn';
+import type { WithClassName } from "../types/WithClassName";
 
-type StatusPinProps = {
-  status?: 'online' | 'offline';
-} & WithClassName;
-
-function StatusPin({ status = 'offline', className }: StatusPinProps) {
-  return (
-    <div
-      className={cn(
-        'w-3 aspect-square border-2 border-neutral-inverse-primary rounded-full',
-        {
-          'bg-miscellaneous-lime': status === 'online',
-          'bg-neutral-inverse-tertiary': status === 'offline',
-        },
-        className
-      )}
-    ></div>
-  );
+function StatusPin({ className }: WithClassName) {
+  return <div className={`aspect-square w-3 rounded-full border-width-m border-neutral-inverse-primary bg-lime ${className}`}></div>;
 }
 export default StatusPin;

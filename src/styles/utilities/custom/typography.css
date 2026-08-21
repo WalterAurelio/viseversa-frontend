@@ -33,13 +33,13 @@
 
 @utility body-default {
   font-size: var(--text-body);
-  line-height: 25px;
+  line-height: 22px;
 }
 
 @utility body-strong {
   font-size: var(--text-body);
   font-weight: 600;
-  line-height: 25px;
+  line-height: 22px;
 }
 
 @utility caption-default {
