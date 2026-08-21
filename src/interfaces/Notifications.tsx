@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Notification, { type TNotification } from "../components/Notification";
 import { cn } from "../utils/cn";
 
@@ -7,12 +8,14 @@ type NotificationsProps = React.ComponentProps<"div"> & {
 };
 
 function Notifications({ notifications, className, ...props }: NotificationsProps) {
-  const unreadNotifications = notifications.filter((notification) => !notification.isRead);
+  const [notificationList, setNotificationList] = useState(notifications);
+  const unreadNotifications = notificationList.filter((notification) => !notification.isRead);
   const unreadCount = unreadNotifications.length;
   const markAllAsRead = () => {
     unreadNotifications.forEach((notification) => {
       console.log(`Marking notification with id: ${notification.id} as read`);
     });
+    setNotificationList((prevNotifications) => prevNotifications.map((notification) => ({ ...notification, isRead: true })));
   };
 
   return (
@@ -28,9 +31,9 @@ function Notifications({ notifications, className, ...props }: NotificationsProp
       </header>
 
       <div className="flex max-h-72 w-full flex-col items-start overflow-y-auto">
-        {notifications.map((notification, index) => {
+        {notificationList.map((notification) => {
           const castedNotification = { ...notification, variant: notification.variant as TNotification["variant"] };
-          return <Notification key={index} notification={castedNotification} className="w-full" />;
+          return <Notification key={notification.id} notification={castedNotification} className="w-full" />;
         })}
       </div>
     </div>

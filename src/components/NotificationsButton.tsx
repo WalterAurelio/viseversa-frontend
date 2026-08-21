@@ -33,10 +33,12 @@ function NotificationsButton() {
         className={cn("flex aspect-square w-10 cursor-pointer items-center justify-center text-neutral-secondary", { "text-brand-primary": isNotificationsOpen })}
         type="button"
         onClick={handleBellClick}
+        aria-label="Abrir notificaciones"
+        aria-controls="notifications-dropdown"
+        aria-expanded={isNotificationsOpen}
       >
         <Bell className="w-4.5" />
       </button>
-
       {unreadCount > 0 && (
         <div
           className="absolute top-0 right-0 flex h-5 w-5 cursor-pointer items-center justify-center rounded-border-s bg-brand-primary pb-0.75"
@@ -46,8 +48,10 @@ function NotificationsButton() {
           <span className="label-small text-neutral-inverse-primary select-none">{unreadCount}</span>
         </div>
       )}
-
       <Notifications
+        id="notifications-dropdown"
+        inert={!isNotificationsOpen}
+        aria-hidden={!isNotificationsOpen}
         notifications={notifications as TNotification[]}
         className={cn("absolute -top-144 right-0 opacity-0 transition-all duration-300", { "top-full opacity-100": isNotificationsOpen })}
       />
