@@ -1,77 +1,40 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import ArrowLeft from '../assets/icons/ArrowLeft.svg?react';
-import Button from '../components/Button.tsx';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import Button from "../components/Button";
 
 const meta = {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
-  parameters: {
-    layout: 'centered',
+  args: {
+    color: "black",
+    buttonStyle: "fill",
+    hasIcon: true,
+    disabled: false,
+    children: "Button"
   },
-  tags: ['autodocs'],
+  argTypes: {
+    color: {
+      control: "radio",
+      options: ["black", "red"]
+    },
+    buttonStyle: {
+      control: "radio",
+      options: ["fill", "minimal"]
+    },
+    hasIcon: {
+      control: "radio",
+      options: [true, false]
+    },
+    disabled: {
+      control: "radio",
+      options: [true, false]
+    },
+    children: {
+      control: "text"
+    }
+  }
 } satisfies Meta<typeof Button>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Button>;
 
-export const Black: Story = {
-  args: {
-    children: 'Button',
-    colour: 'black',
-    buttonStyle: 'fill',
-    buttonState: 'idle',
-    icon: <ArrowLeft />,
-  },
-};
-
-export const Red: Story = {
-  args: {
-    children: 'Button',
-    colour: 'red',
-    buttonStyle: 'fill',
-    buttonState: 'idle',
-    icon: <ArrowLeft />,
-  },
-};
-
-export const RedMinimal: Story = {
-  args: {
-    children: 'Button',
-    colour: 'red',
-    buttonStyle: 'minimal',
-    buttonState: 'idle',
-    icon: <ArrowLeft />,
-  },
-};
-
-export const BlackMinimal: Story = {
-  args: {
-    children: 'Button',
-    colour: 'black',
-    buttonStyle: 'minimal',
-    buttonState: 'idle',
-    icon: <ArrowLeft />,
-  },
-};
-
-export const FillDisabled: Story = {
-  args: {
-    children: 'Button',
-    colour: 'red',
-    buttonStyle: 'fill',
-    buttonState: 'disabled',
-    icon: <ArrowLeft />,
-    disabled: true
-  },
-};
-
-export const MinimalDisabled: Story = {
-  args: {
-    children: 'Button',
-    colour: 'red',
-    buttonStyle: 'minimal',
-    buttonState: 'disabled',
-    icon: <ArrowLeft />,
-    disabled: true
-  },
-};
+export const Primary: Story = {};
