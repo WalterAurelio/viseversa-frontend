@@ -1,22 +1,14 @@
-import Star from '../assets/icons/Star.svg?react';
+import Star from "../assets/icons/Star.svg?react";
 
-export default function RatingStars({ number }: { number: number }) {
-  const max = 5;
-  const stars = [];
+function RatingStars({ stars }: { stars: number }) {
+  const maxStars = 5;
+  const starsArray = [];
 
-  for (let i = 1; i <= max; i++) {
-    const filled = i <= number;
-    stars.push(
-      <Star
-        key={i}
-        className={`text-miscellaneous-sunflower ${!filled && 'fill-none'} w-5 lg:w-6`}
-      />
-    );
+  for (let i = 0; i < maxStars; i++) {
+    const isFilled = i < stars;
+    starsArray.push(<Star key={i} className={`size-4.5 ${isFilled ? "fill-sunflower" : "fill-none"}`} />);
   }
 
-  return (
-    <div className='w-fit flex items-center gap-xs'>
-      {stars}
-    </div>
-  );
+  return <div className="flex items-center gap-xs text-sunflower">{starsArray}</div>;
 }
+export default RatingStars;
