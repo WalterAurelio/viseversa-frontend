@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes, ElementType } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import ArrowLeft from "../assets/icons/ArrowLeft.svg?react";
 import { cn } from "../utils/cn";
@@ -64,16 +64,16 @@ const buttonVariants = cva("inline-flex h-13 items-center justify-center gap-s r
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
     hasIcon?: boolean;
-    icon?: ReactNode;
+    icon?: ElementType<React.SVGProps<SVGSVGElement>>;
   };
 
-function Button({ className, children = "Button", hasIcon = true, icon = <ArrowLeft className="size-4.5" />, /* state, */ buttonStyle, color, disabled, ...props }: ButtonProps) {
+function Button({ className, children = "Button", hasIcon = true, icon: Icon = ArrowLeft, /* state, */ buttonStyle, color, disabled, ...props }: ButtonProps) {
   // const isDisabled = disabled || state === "disabled";
 
   return (
     <button className={cn(buttonVariants({ state: disabled ? "disabled" : "idle", buttonStyle, color }), className)} disabled={disabled} {...props}>
       {children}
-      {hasIcon && icon}
+      {hasIcon && <Icon className="size-4.5" />}
     </button>
   );
 }

@@ -5,7 +5,7 @@ const meta = {
   title: "Components/Input",
   component: Input,
   args: {
-    placeholder: "Enter text",
+    placeholder: "Placeholder",
     type: "text"
   },
   argTypes: {
