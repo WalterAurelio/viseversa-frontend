@@ -1,28 +1,36 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Fieldset from "../components/Fieldset";
 import Checkbox from "../components/Checkbox";
+import FormWrapper from "../components/FormWrapper";
 
 const meta = {
   title: "Components/Fieldset",
   component: Fieldset,
+  argTypes: {
+    className: { control: false }
+  },
   args: {
     className: "max-w-72",
     legend: "Label",
-    errorMsg: "Error message",
+    htmlName: "size",
     children: (
-      <div className="flex flex-wrap gap-xs">
-        <Checkbox label="XS" id="xs" />
-        <Checkbox label="S" id="s" />
-        <Checkbox label="M" id="m" />
-        <Checkbox label="L" id="l" />
-        <Checkbox label="XL" id="xl" />
-        <Checkbox label="XXL" id="xxl" />
-      </div>
+      <>
+        <Checkbox name="size" id="xs" label="XS" value="XS" />
+        <Checkbox name="size" id="s" label="S" value="S" />
+        <Checkbox name="size" id="m" label="M" value="M" />
+        <Checkbox name="size" id="l" label="L" value="L" />
+        <Checkbox name="size" id="xl" label="XL" value="XL" />
+        <Checkbox name="size" id="xxl" label="XXL" value="XXL" />
+      </>
     )
   },
-  argTypes: {
-    className: { control: false }
-  }
+  decorators: [
+    (Story) => (
+      <FormWrapper name="size">
+        <Story />
+      </FormWrapper>
+    )
+  ]
 } satisfies Meta<typeof Fieldset>;
 
 export default meta;
