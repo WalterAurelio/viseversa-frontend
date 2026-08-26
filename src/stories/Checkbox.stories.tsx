@@ -13,7 +13,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <FormWrapper name="checkbox">
+      <FormWrapper htmlName="checkbox">
         <Story />
       </FormWrapper>
     )

@@ -26,7 +26,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <FormWrapper name="size">
+      <FormWrapper htmlName="size">
         <Story />
       </FormWrapper>
     )

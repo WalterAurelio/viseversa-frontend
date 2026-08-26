@@ -22,7 +22,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <FormWrapper name="input">
+      <FormWrapper htmlName="input">
         <Story />
       </FormWrapper>
     )
