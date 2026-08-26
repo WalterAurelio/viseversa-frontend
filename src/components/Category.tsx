@@ -1,24 +1,14 @@
-import { NavLink } from "react-router";
-import Image from "../assets/icons/Image.svg?react";
-type CategoryProps = {
-  name: string;
-  imageUrl?: string;
-};
+import { Link, type LinkProps } from "react-router";
 
-export default function Category({ name, imageUrl }: CategoryProps) {
+function Category({ to = "/", children = "Category", ...props }: LinkProps) {
   return (
-    <NavLink
-      to={`/${name}`}
-      className="flex h-16 w-33.5 cursor-pointer items-center gap-s overflow-hidden rounded-border-m border-width-s border-neutral-inverse-primary bg-neutral-primary p-s caption-default hover:border-brand-primary hover:text-brand-primary lg:h-22 lg:w-56 lg:gap-l lg:rounded-border-l lg:p-l"
+    <Link
+      to={to}
+      className="inline-flex items-center justify-center rounded-full bg-brand-tertiary px-l py-m label-default text-neutral-tertiary hover:bg-brand-primary hover:text-neutral-inverse-primary"
+      {...props}
     >
-      {imageUrl ? (
-        <img className="w-12 lg:w-14" src={imageUrl} alt={name} />
-      ) : (
-        <div className="flex aspect-square h-12 items-center justify-center bg-neutral-disabled lg:h-14">
-          <Image className="w-4.5" />
-        </div>
-      )}
-      <p className="w-full text-center">{name}</p>
-    </NavLink>
+      {children}
+    </Link>
   );
 }
+export default Category;
