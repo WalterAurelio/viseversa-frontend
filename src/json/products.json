@@ -1,0 +1,62 @@
+[
+  {
+    "img": "https://images.unsplash.com/photo-1529139574466-a303027c1d8b",
+    "title": "Campera de jean azul clásica para uso diario",
+    "inExchangeOf": "Buzo de algodón talle M en buen estado",
+    "location": "Buenos Aires"
+  },
+  {
+    "img": "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+    "title": "Zapatillas deportivas blancas con detalles grises",
+    "inExchangeOf": "Zapatillas urbanas de cualquier color",
+    "location": "Córdoba"
+  },
+  {
+    "img": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3",
+    "title": "Sweater tejido beige de corte clásico y cómodo",
+    "inExchangeOf": "Campera liviana para días frescos",
+    "location": "Santa Fe"
+  },
+  {
+    "img": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10",
+    "title": "Camisa a cuadros manga larga de estilo casual",
+    "inExchangeOf": "Remera básica de algodón talle M",
+    "location": "Mendoza"
+  },
+  {
+    "img": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62",
+    "title": "Mochila urbana negra con varios compartimentos",
+    "inExchangeOf": "Mochila compacta para uso cotidiano",
+    "location": "Buenos Aires"
+  },
+  {
+    "img": "https://images.unsplash.com/photo-1576566588028-4147f3842f27",
+    "title": "Remera oversize gris de algodón y corte relajado",
+    "inExchangeOf": "Remera estampada de algodón talle M",
+    "location": "Entre Ríos"
+  },
+  {
+    "img": "https://images.unsplash.com/photo-1548883354-7622d03aca27",
+    "title": "Pantalón cargo verde con bolsillos laterales amplios",
+    "inExchangeOf": "Jean recto de color azul clásico",
+    "location": "Tucumán"
+  },
+  {
+    "img": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f",
+    "title": "Vestido casual negro de corte simple y elegante",
+    "inExchangeOf": "Vestido corto para usar durante el verano",
+    "location": "Salta"
+  },
+  {
+    "img": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+    "title": "Remera básica blanca de algodón y manga corta",
+    "inExchangeOf": "Buzo liviano con capucha y bolsillo frontal",
+    "location": "Neuquén"
+  },
+  {
+    "img": "https://images.unsplash.com/photo-1548036328-c9fa89d128fa",
+    "title": "Bolso de cuero marrón con diseño amplio y clásico",
+    "inExchangeOf": "Mochila mediana de uso diario",
+    "location": "Río Negro"
+  }
+]
