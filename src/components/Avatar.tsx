@@ -22,7 +22,7 @@ export default function Avatar({ className, hasStatus = true, hasUsername = true
   const { nombreUsuario, fotoPerfil } = data;
 
   return (
-    <div className={cn("relative flex items-center gap-m", className)}>
+    <div className={cn("relative flex items-center gap-m", className)} data-testid="avatar-component">
       <div className={cn("relative shrink-0 overflow-visible rounded-full", avatarSizes[size])}>
         {fotoPerfil ? (
           <img className="size-full rounded-full object-cover" src={fotoPerfil} alt={nombreUsuario ? `${nombreUsuario}'s profile` : "Profile picture"} />
