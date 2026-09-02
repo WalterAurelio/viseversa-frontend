@@ -4,9 +4,11 @@ import LogIn from './pages/LogIn';
 import SignUp from './pages/SignUp';
 import RequireAuth from './components/RequireAuth';
 import Profile from './pages/Profile';
+import Category from './pages/Category'
 import { Suspense } from 'react';
 
 function App() {
+
   return (
     <Routes>
       <Route
@@ -22,6 +24,10 @@ function App() {
         <Route
           path='/'
           element={<Home />}
+        />
+        <Route
+          path={`/:categoria`}
+          element={<Category />}
         />
         <Route
           path='/profile'

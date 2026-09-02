@@ -1,13 +1,23 @@
 import './Checkbox.css';
 
-export default function Checkbox({ name = 'Label' }: { name?: string }) {
+type CheckboxProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  label?: string;
+};
+
+export default function Checkbox({ label = 'Label', ...props }: CheckboxProps) {
   return (
     <label
       className="flex w-fit items-center gap-xs rounded-full border-width-s border-neutral-inverse-primary bg-neutral-primary p-s caption-normal text-neutral-secondary"
-      htmlFor={name}
+      htmlFor={label}
     >
-      <input className="input-checkbox" type="checkbox" id={name} name={name} />
-      {name}
+      <input
+        {...props}
+        className="input-checkbox"
+        type="checkbox"
+        id={label}
+        value={label}
+      />
+      {label}
     </label>
   );
 }
