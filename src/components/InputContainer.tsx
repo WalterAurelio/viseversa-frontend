@@ -2,13 +2,13 @@ import type { PropsWithChildren } from "react";
 import { cn } from "../utils/cn";
 import { useFormContext } from "react-hook-form";
 
-type InputContainerProps = PropsWithChildren<{
+type InputContainerProps<T> = PropsWithChildren<{
   className?: string;
   label: string;
-  htmlFor: string;
+  htmlFor: keyof T & string;
 }>;
 
-function InputContainer({ className, label, htmlFor, children }: InputContainerProps) {
+function InputContainer<T>({ className, label, htmlFor, children }: InputContainerProps<T>) {
   const {
     formState: { errors }
   } = useFormContext();

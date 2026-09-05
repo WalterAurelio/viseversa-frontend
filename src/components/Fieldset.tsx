@@ -2,13 +2,13 @@ import type { PropsWithChildren } from "react";
 import { cn } from "../utils/cn";
 import { useFormContext } from "react-hook-form";
 
-type FieldsetProps = PropsWithChildren<{
+type FieldsetProps<T> = PropsWithChildren<{
   className?: string;
   legend: string;
-  htmlName: string;
+  htmlName: keyof T & string;
 }>;
 
-function Fieldset({ className, legend, htmlName, children }: FieldsetProps) {
+function Fieldset<T>({ className, legend, htmlName, children }: FieldsetProps<T>) {
   const {
     formState: { errors }
   } = useFormContext();
