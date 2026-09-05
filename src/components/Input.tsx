@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import { cn } from "../utils/cn";
 
-type InputProps<T> = React.ComponentPropsWithoutRef<"input"> & {
+type InputProps<T> = Omit<React.ComponentPropsWithoutRef<"input">, "onChange" | "onBlur"> & {
   name: keyof T & string;
   id: keyof T & string;
 };

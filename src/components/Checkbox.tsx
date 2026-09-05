@@ -1,7 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import Check from "../assets/icons/Check.svg?react";
 
-type CheckboxProps<T, K extends keyof T> = React.ComponentProps<"input"> & {
+type CheckboxProps<T, K extends keyof T> = Omit<React.ComponentPropsWithoutRef<"input">, "onChange" | "onBlur"> & {
   name: K;
   id: string;
   label: string;
