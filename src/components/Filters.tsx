@@ -1,12 +1,10 @@
-import Fieldset from "./Fieldset";
-import Checkbox from "./Checkbox";
-import Form from "./Form";
 import X from "../assets/icons/X.svg?react";
 import Faders from "../assets/icons/Faders.svg?react";
 import CaretDown from "../assets/icons/CaretDown.svg?react";
 import { useState } from "react";
 import Select from "./Select";
 import { z } from "zod";
+import { createForm } from "../utils/createForm";
 
 const ubicaciones = [
   "Buenos Aires",
@@ -35,12 +33,13 @@ const ubicaciones = [
 ];
 
 const schema = z.object({
-  talle: z.string().optional(),
+  talle: z.array(z.enum(["XS", "S", "M", "L", "XL", "XXL"]), "Debes seleccionar al menos un talle").nonempty("Debes seleccionar al menos un talle"),
   ubicacion: z.string().optional()
 });
 
 export default function Filters() {
   const [isOpen, setIsOpen] = useState(false);
+  const { Form, Fieldset, Checkbox } = createForm(schema);
 
   return (
     <div className="relative w-[288px]">
@@ -60,7 +59,7 @@ export default function Filters() {
             </button>
           </div>
         </div>
-        <Form schema={schema} className="flex flex-col gap-m">
+        <Form className="flex flex-col gap-m">
           <Fieldset legend="Talle:" htmlName="talle">
             <div className="flex flex-wrap gap-xs">
               <Checkbox name="talle" id="xs" label="XS" value="XS" />
