@@ -21,12 +21,12 @@ function SearchBar() {
       className="flex h-9 w-72 items-center gap-s rounded-full border border-neutral-inverse-primary bg-neutral-primary px-l has-focus:border-brand-primary has-focus:shadow-[0_0_0_3px_#ffeaec]"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <button className="text-neutral-disabled" type="submit" disabled={!queryValue}>
+      <button className="cursor-pointer text-neutral-disabled" type="submit" disabled={!queryValue}>
         <MagnifyingGlass className="w-3.5" />
       </button>
       <input className="w-full text-neutral-primary" type="search" placeholder="Buscar ropa, marca, talle..." {...register("query")} />
       <button
-        className={cn("text-neutral-disabled", { hidden: !queryValue })}
+        className={cn("cursor-pointer text-neutral-disabled", { hidden: !queryValue })}
         type="button"
         onClick={() => {
           resetField("query");

@@ -28,7 +28,7 @@ export default function Avatar({ className, hasStatus = true, hasUsername = true
           <img className="size-full rounded-full object-cover" src={fotoPerfil} alt={nombreUsuario ? `${nombreUsuario}'s profile` : "Profile picture"} />
         ) : (
           <div className="flex size-full items-center justify-center rounded-full bg-neutral-disabled" aria-label="No profile picture">
-            <User className="w-4.5" />
+            <User className="size-4.5" />
           </div>
         )}
         {hasStatus && <StatusPin className="absolute right-0 bottom-0" />}

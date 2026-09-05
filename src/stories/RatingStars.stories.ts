@@ -1,20 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import RatingStars from '../components/RatingStars';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import RatingStars from "../components/RatingStars";
 
 const meta = {
-  title: 'Components/RatingStars',
+  title: "Components/RatingStars",
   component: RatingStars,
-  parameters: {
-    layout: 'centered',
+  args: {
+    stars: 1
   },
-  tags: ['autodocs'],
+  argTypes: {
+    stars: {
+      control: { type: "number", min: 0, max: 5, step: 1 }
+    }
+  }
 } satisfies Meta<typeof RatingStars>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    number: 4,
-  },
-};
+export const Default: Story = {};

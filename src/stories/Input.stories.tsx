@@ -1,25 +1,34 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import InputContainer from "../components/InputContainer";
 import Input from "../components/Input";
 import FormWrapper from "../components/FormWrapper";
 import type { TestSchema } from "../utils/testSchema";
 
 const meta = {
-  title: "Components/InputContainer",
-  component: InputContainer<TestSchema>,
+  title: "Components/Input",
+  component: Input<TestSchema>,
   args: {
-    label: "Nombre:",
-    htmlFor: "name",
-    children: <Input<TestSchema> name="name" id="name" placeholder="Ingresa tu nombre" />
+    name: "name",
+    id: "name",
+    placeholder: "Ingresa tu nombre",
+    type: "text"
+  },
+  argTypes: {
+    placeholder: {
+      control: { type: "text" }
+    },
+    type: {
+      control: { type: "select" },
+      options: ["text", "password", "email", "number", "search"]
+    }
   },
   decorators: [
     (Story) => (
-      <FormWrapper<TestSchema> htmlName="name">
+      <FormWrapper>
         <Story />
       </FormWrapper>
     )
   ]
-} satisfies Meta<typeof InputContainer<TestSchema>>;
+} satisfies Meta<typeof Input<TestSchema>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

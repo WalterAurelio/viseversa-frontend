@@ -1,17 +1,24 @@
 import type { PropsWithChildren } from "react";
-import Dummy from "./Dummy";
+import { cn } from "../utils/cn";
+import { useFormContext } from "react-hook-form";
 
-type FieldsetProps = PropsWithChildren & {
-  legend?: string;
-  errorMsg?: string;
-};
+type FieldsetProps<T> = PropsWithChildren<{
+  className?: string;
+  legend: string;
+  htmlName: keyof T & string;
+}>;
 
-function Fieldset({ legend, errorMsg, children }: FieldsetProps) {
+function Fieldset<T>({ className, legend, htmlName, children }: FieldsetProps<T>) {
+  const {
+    formState: { errors }
+  } = useFormContext();
+  const errorMsg = errors[htmlName]?.message as string | undefined;
+
   return (
-    <fieldset className="flex flex-col gap-s">
-      {legend && <legend className="label text-neutral-primary">{legend}</legend>}
-      {children ? children : <Dummy />}
-      {errorMsg && <p className="caption-default text-brand-primary">{errorMsg}</p>}
+    <fieldset className={cn("flex w-full flex-wrap items-start gap-xs", className)}>
+      <legend className="mb-xs label-default text-neutral-primary">{legend}</legend>
+      {children}
+      {errorMsg && <p className="w-full caption-default text-brand-primary">{errorMsg}</p>}
     </fieldset>
   );
 }
