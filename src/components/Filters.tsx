@@ -36,10 +36,10 @@ const schema = z.object({
   talle: z.array(z.enum(["XS", "S", "M", "L", "XL", "XXL"]), "Debes seleccionar al menos un talle").nonempty("Debes seleccionar al menos un talle"),
   ubicacion: z.string().optional()
 });
+const { Form, Fieldset, Checkbox } = createForm(schema);
 
 export default function Filters() {
   const [isOpen, setIsOpen] = useState(false);
-  const { Form, Fieldset, Checkbox } = createForm(schema);
 
   return (
     <div className="relative w-[288px]">
