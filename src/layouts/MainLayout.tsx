@@ -1,10 +1,10 @@
 import { Outlet } from "react-router";
-import NavBar from "../interfaces/NavBar";
+// import NavBar from "../interfaces/NavBar";
 
 function MainLayout() {
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <Outlet />
     </div>
   );
