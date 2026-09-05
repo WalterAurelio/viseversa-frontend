@@ -1,17 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Fieldset from "../components/Fieldset";
-import Checkbox from "../components/Checkbox";
+import CheckboxFn from "../components/Checkbox";
 import FormWrapper from "../components/FormWrapper";
+import type { TestSchema } from "../utils/testSchema";
+
+const Checkbox = CheckboxFn<TestSchema>();
 
 const meta = {
   title: "Components/Fieldset",
-  component: Fieldset,
+  component: Fieldset<TestSchema>,
   argTypes: {
     className: { control: false }
   },
   args: {
     className: "max-w-72",
-    legend: "Label",
+    legend: "Talle:",
     htmlName: "size",
     children: (
       <>
@@ -26,12 +29,12 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <FormWrapper htmlName="size">
+      <FormWrapper<TestSchema> htmlName="size">
         <Story />
       </FormWrapper>
     )
   ]
-} satisfies Meta<typeof Fieldset>;
+} satisfies Meta<typeof Fieldset<TestSchema>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

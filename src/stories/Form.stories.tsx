@@ -1,17 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Form from "../components/Form";
-import InputContainer from "../components/InputContainer";
-import Input from "../components/Input";
+import { createForm } from "../utils/createForm";
 import Button from "../components/Button";
-import { z } from "zod";
-import Fieldset from "../components/Fieldset";
-import Checkbox from "../components/Checkbox";
+import { testSchema } from "../utils/testSchema";
 
-const schema = z.object({
-  name: z.string().min(1, { message: "El nombre es requerido" }),
-  lastName: z.string().min(1, { message: "El apellido es requerido" }),
-  size: z.array(z.enum(["XS", "S", "M", "L", "XL", "XXL"]), "Debes seleccionar al menos un talle").nonempty("Debes seleccionar al menos un talle")
-});
+const { Form, InputContainer, Input, Fieldset, Checkbox } = createForm(testSchema);
 
 const meta = {
   title: "Components/Form",
@@ -23,7 +15,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    schema,
     className: "w-96",
     children: (
       <>
@@ -34,12 +25,12 @@ export const Default: Story = {
           <Input type="text" id="lastName" name="lastName" placeholder="Ingresa tu apellido" className="w-full" />
         </InputContainer>
         <Fieldset legend="Talle:" htmlName="size">
-          <Checkbox name="size" id="size-xs" label="XS" value="XS" />
-          <Checkbox name="size" id="size-s" label="S" value="S" />
-          <Checkbox name="size" id="size-m" label="M" value="M" />
-          <Checkbox name="size" id="size-l" label="L" value="L" />
-          <Checkbox name="size" id="size-xl" label="XL" value="XL" />
-          <Checkbox name="size" id="size-xxl" label="XXL" value="XXL" />
+          <Checkbox name="size" id="xs" label="XS" value="XS" />
+          <Checkbox name="size" id="s" label="S" value="S" />
+          <Checkbox name="size" id="m" label="M" value="M" />
+          <Checkbox name="size" id="l" label="L" value="L" />
+          <Checkbox name="size" id="xl" label="XL" value="XL" />
+          <Checkbox name="size" id="xxl" label="XXL" value="XXL" />
         </Fieldset>
         <Button type="submit">Enviar</Button>
       </>
