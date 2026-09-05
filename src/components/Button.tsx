@@ -62,7 +62,7 @@ const buttonVariants = cva("inline-flex h-13 items-center justify-center gap-s r
 });
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof buttonVariants> & {
+  Omit<VariantProps<typeof buttonVariants>, "state"> & {
     hasIcon?: boolean;
     icon?: ElementType<React.SVGProps<SVGSVGElement>>;
   };
