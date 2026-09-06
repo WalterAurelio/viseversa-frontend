@@ -2,17 +2,19 @@
 import { useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 
-type FormWrapperProps = {
-  htmlName: string;
+type FormWrapperProps<T> = {
+  htmlName?: keyof T & string;
   errorMsg?: string;
   children: React.ReactNode;
 };
 
-function FormWrapper({ htmlName: name, errorMsg, children }: FormWrapperProps) {
+function FormWrapper<T>({ htmlName, errorMsg, children }: FormWrapperProps<T>) {
   const methods = useForm();
   useEffect(() => {
-    methods.setError(name, { type: "manual", message: errorMsg || "Este campo es requerido" });
-  }, [methods, name, errorMsg]);
+    if (htmlName) {
+      methods.setError(htmlName, { type: "manual", message: errorMsg || "Este campo es requerido" });
+    }
+  }, [methods, htmlName, errorMsg]);
 
   return <FormProvider {...methods}>{children}</FormProvider>;
 }

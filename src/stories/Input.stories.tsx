@@ -1,14 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Input from "../components/Input";
 import FormWrapper from "../components/FormWrapper";
+import type { TestSchema } from "../utils/testSchema";
 
 const meta = {
   title: "Components/Input",
-  component: Input,
+  component: Input<TestSchema>,
   args: {
-    name: "input",
-    id: "input",
-    placeholder: "Placeholder",
+    name: "name",
+    id: "name",
+    placeholder: "Ingresa tu nombre",
     type: "text"
   },
   argTypes: {
@@ -22,12 +23,12 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <FormWrapper htmlName="input">
+      <FormWrapper>
         <Story />
       </FormWrapper>
     )
   ]
-} satisfies Meta<typeof Input>;
+} satisfies Meta<typeof Input<TestSchema>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
