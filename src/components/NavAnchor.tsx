@@ -1,24 +1,27 @@
-import { NavLink, type NavLinkProps } from 'react-router';
-import { cn } from '../utils/cn';
-import type { PropsWithChildren } from 'react';
+import { Link, type LinkProps } from "react-router";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../utils/cn";
 
-type NavAnchorProps = NavLinkProps & PropsWithChildren
+const navAnchorVariants = cva("inline-flex items-center justify-center label-default text-brand-primary", {
+  variants: {
+    navStyle: {
+      fill: "h-10 rounded-full bg-brand-primary px-xl text-neutral-inverse-primary lg:cursor-pointer lg:hover:bg-brand-secondary",
+      minimal: "p-none lg:cursor-pointer lg:hover:underline"
+    }
+  },
+  defaultVariants: {
+    navStyle: "fill"
+  }
+});
 
-function NavAnchor({ to, children, ...props }: NavAnchorProps) {
+type NavAnchorProps = LinkProps & VariantProps<typeof navAnchorVariants>;
+
+function NavAnchor({ className, navStyle, children = "Label", ...props }: NavAnchorProps) {
   return (
-    <NavLink
-      to={to}
-      className={({ isActive }) =>
-        cn({
-          'lg:hover:text-neutral-tertiary': !isActive,
-          'text-brand-primary': isActive,
-          'label': true
-        })
-      }
-      {...props}
-    >
+    <Link className={cn(navAnchorVariants({ navStyle }), className)} {...props}>
       {children}
-    </NavLink>
+    </Link>
   );
 }
+
 export default NavAnchor;

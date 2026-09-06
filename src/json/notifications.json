@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "message": "Juan te envió una solicitud de intercambio.",
+    "createdAt": "2026-08-19T10:30:00Z",
+    "variant": "request",
+    "profilePic": "https://i.pravatar.cc/150?img=12",
+    "isRead": false
+  },
+  {
+    "id": "2",
+    "message": "María comentó en tu publicación.",
+    "createdAt": "2026-08-19T09:45:00Z",
+    "variant": "comment",
+    "profilePic": "https://i.pravatar.cc/150?img=47",
+    "isRead": true
+  },
+  {
+    "id": "3",
+    "message": "Pedro aceptó tu solicitud de intercambio.",
+    "createdAt": "2026-08-18T18:20:00Z",
+    "variant": "accepted",
+    "profilePic": "https://i.pravatar.cc/150?img=33",
+    "isRead": false
+  },
+  {
+    "id": "4",
+    "message": "Lucía dejó una reseña sobre tu intercambio.",
+    "createdAt": "2026-08-18T15:10:00Z",
+    "variant": "review",
+    "profilePic": "https://i.pravatar.cc/150?img=25",
+    "isRead": true
+  },
+  {
+    "id": "5",
+    "message": "Sofía te envió una nueva solicitud de intercambio.",
+    "createdAt": "2026-08-17T12:05:00Z",
+    "variant": "Request",
+    "profilePic": "https://i.pravatar.cc/150?img=49",
+    "isRead": false
+  }
+]

@@ -1,42 +1,47 @@
-import Fieldset from './Fieldset';
-import Checkbox from './Checkbox/Checkbox';
-import Form from './Form';
-import X from '../assets/icons/X.svg?react';
-import Faders from '../assets/icons/Faders.svg?react';
-import CaretDown from '../assets/icons/CaretDown.svg?react';
-import { useState } from 'react';
-import Select from './Select';
-import { useForm } from 'react-hook-form';
-import Button from './Button';
-import { useParams } from 'react-router';
-import { TALLES_POR_CATEGORIA } from '../types/Sizes';
-import type { URLSearchParamsInit, NavigateOptions } from 'react-router';
+import X from "../assets/icons/X.svg?react";
+import Faders from "../assets/icons/Faders.svg?react";
+import CaretDown from "../assets/icons/CaretDown.svg?react";
+import { useState } from "react";
+import Select from "./Select";
+import { z } from "zod";
+import { createForm } from "../utils/createForm";
+import { useForm } from "react-hook-form";
+import Button from "./Button";
+import { useParams } from "react-router";
+import { TALLES_POR_CATEGORIA } from "../types/Sizes";
+import type { URLSearchParamsInit, NavigateOptions } from "react-router";
 
 const ubicaciones = [
-  'Buenos Aires',
-  'Catamarca',
-  'Chaco',
-  'Chubut',
-  'Corrientes',
-  'Córdoba',
-  'Entre Ríos',
-  'Formosa',
-  'Jujuy',
-  'La Pampa',
-  'La Rioja',
-  'Mendoza',
-  'Misiones',
-  'Neuquén',
-  'Río Negro',
-  'Salta',
-  'San Juan',
-  'San Luis',
-  'Santa Cruz',
-  'Santa Fe',
-  'Santiago del Estero',
-  'Tierra del Fuego',
-  'Tucumán'
+  "Buenos Aires",
+  "Catamarca",
+  "Chaco",
+  "Chubut",
+  "Corrientes",
+  "Córdoba",
+  "Entre Ríos",
+  "Formosa",
+  "Jujuy",
+  "La Pampa",
+  "La Rioja",
+  "Mendoza",
+  "Misiones",
+  "Neuquén",
+  "Río Negro",
+  "Salta",
+  "San Juan",
+  "San Luis",
+  "Santa Cruz",
+  "Santa Fe",
+  "Santiago del Estero",
+  "Tierra del Fuego",
+  "Tucumán"
 ];
+
+const schema = z.object({
+  talle: z.array(z.enum(["XS", "S", "M", "L", "XL", "XXL"]), "Debes seleccionar al menos un talle").nonempty("Debes seleccionar al menos un talle"),
+  ubicacion: z.string().optional()
+});
+const { Form, Fieldset, Checkbox } = createForm(schema);
 
 type FilterForm = {
   categoria?: string;
@@ -44,9 +49,9 @@ type FilterForm = {
   ubicacion?: string;
 };
 
-export default function Filters( setParams: (nextInit?: URLSearchParamsInit | ((prev: URLSearchParams) => URLSearchParamsInit) | undefined, navigateOpts?: NavigateOptions) => void ) {
+export default function Filters(setParams: (nextInit?: URLSearchParamsInit | ((prev: URLSearchParams) => URLSearchParamsInit) | undefined, navigateOpts?: NavigateOptions) => void) {
   const [isOpen, setIsOpen] = useState(false);
-  const { register, handleSubmit } = useForm<FilterForm>();
+  const { register /* , handleSubmit */ } = useForm<FilterForm>();
   const { categoria } = useParams();
 
   const talles = categoria ? TALLES_POR_CATEGORIA[categoria as keyof typeof TALLES_POR_CATEGORIA] : [];
@@ -65,30 +70,27 @@ export default function Filters( setParams: (nextInit?: URLSearchParamsInit | ((
 
   const submit = (formData: FilterForm) => {
     if (formData.talle) {
-      actualizarFiltro('talle', formData.talle);
+      actualizarFiltro("talle", formData.talle);
     }
     if (formData.ubicacion) {
-      actualizarFiltro('ubicacion', formData.ubicacion);
+      actualizarFiltro("ubicacion", formData.ubicacion);
     }
     setIsOpen(false);
   };
 
   return (
     <div className="relative w-[288px]">
-      <div
-        className="flex cursor-pointer justify-end gap-s"
-        onClick={() => setIsOpen(true)}
-      >
+      <div className="flex cursor-pointer justify-end gap-s" onClick={() => setIsOpen(true)}>
         <Faders />
         Filtros <CaretDown />
       </div>
       <div
-        className={`absolute top-0 flex w-[288px] flex-col gap-m rounded-border-l bg-neutral-primary p-l transition delay-300 duration-300 ease-out ${isOpen ? 'right-0 opacity-100' : 'translate-x-90 opacity-0'}`}
+        className={`absolute top-0 flex w-[288px] flex-col gap-m rounded-border-l bg-neutral-primary p-l transition delay-300 duration-300 ease-out ${isOpen ? "right-0 opacity-100" : "translate-x-90 opacity-0"}`}
       >
         <div className="flex justify-between">
           <p className="label">Filtros</p>
           <div className="flex items-center gap-s">
-            <button className="cursor-pointer caption-normal text-neutral-tertiary" onClick={limpiarFiltro}>
+            <button className="caption-normal cursor-pointer text-neutral-tertiary" onClick={limpiarFiltro}>
               Limpiar
             </button>
             <button className="cursor-pointer" onClick={() => setIsOpen(false)}>
@@ -96,22 +98,20 @@ export default function Filters( setParams: (nextInit?: URLSearchParamsInit | ((
             </button>
           </div>
         </div>
-        <Form onSubmit={handleSubmit(submit)} className="flex flex-col gap-m">
-          <Fieldset legend="Talle:">
+        <Form onSubmit={submit} className="flex flex-col gap-m">
+          <Fieldset legend="Talle:" htmlName="talle">
             <div className="flex flex-wrap gap-xs">
-              {talles.map((t, index) => <Checkbox key={index} {...register('talle')} label={t} />)}
+              {talles.map((t, index) => (
+                <Checkbox id={t} name="talle" key={index} label={t} />
+              ))}
             </div>
           </Fieldset>
-          <Select {...register('ubicacion')}>
+          <Select {...register("ubicacion")}>
             <>
-              <option value=''>Seleccionar ubicación</option>
+              <option value="">Seleccionar ubicación</option>
               {ubicaciones.map((u, index) => {
                 return (
-                  <option
-                    className="option-form cursor-pointer"
-                    key={index}
-                    value={u}
-                  >
+                  <option className="option-form cursor-pointer" key={index} value={u}>
                     {u}
                   </option>
                 );

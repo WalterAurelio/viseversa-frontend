@@ -1,26 +1,28 @@
-import type { PropsWithChildren } from 'react';
-import Dummy from './Dummy';
+import type { PropsWithChildren } from "react";
+import { cn } from "../utils/cn";
+import { useFormContext } from "react-hook-form";
 
-type InputContainerProps = PropsWithChildren & {
-  label?: string;
-  htmlFor: string;
-  errorMsg?: string;
-};
+type InputContainerProps<T> = PropsWithChildren<{
+  className?: string;
+  label: string;
+  htmlFor: keyof T & string;
+}>;
 
-function InputContainer({ label, htmlFor, errorMsg, children }: InputContainerProps) {
+function InputContainer<T>({ className, label, htmlFor, children }: InputContainerProps<T>) {
+  const {
+    formState: { errors }
+  } = useFormContext();
+  const errorMsg = errors[htmlFor]?.message as string | undefined;
+
   return (
-    <div className='flex flex-col gap-s'>
-      <label
-        htmlFor={htmlFor}
-        className='text-neutral-primary label select-none'
-      >
+    <div className={cn("flex w-full flex-col items-start gap-xs", className)}>
+      <label className="label-default text-neutral-primary" htmlFor={htmlFor}>
         {label}
       </label>
-      {children ? children : <Dummy />}
-      {errorMsg && (
-        <p className='text-brand-primary caption-normal'>{errorMsg}</p>
-      )}
+      {children}
+      {errorMsg && <p className="caption-default text-brand-primary">{errorMsg}</p>}
     </div>
   );
 }
+
 export default InputContainer;

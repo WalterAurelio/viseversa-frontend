@@ -6,3 +6,5 @@ export type UserProfileResponse = {
   ubicacion?: string;
   createdAt: string;
 };
+
+export type UserAvatarResponse = Pick<UserProfileResponse, "nombreUsuario" | "fotoPerfil">;

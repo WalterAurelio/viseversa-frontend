@@ -1,13 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import SearchBar from '../components/SearchBar';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import SearchBar from "../components/SearchBar";
 
 const meta = {
-  title: 'Components/SearchBar',
-  component: SearchBar,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
+  title: "Components/SearchBar",
+  component: SearchBar
 } satisfies Meta<typeof SearchBar>;
 
 export default meta;
