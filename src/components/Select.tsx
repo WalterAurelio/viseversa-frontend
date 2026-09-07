@@ -1,16 +1,19 @@
-import type { PropsWithChildren } from 'react';
+import { useFormContext } from "react-hook-form";
+import { inputStyles } from "./Input";
+import { cn } from "../utils/cn";
 
-type SelectProps = PropsWithChildren & {
-  props?: React.InputHTMLAttributes<HTMLInputElement>;
+type SelectProps<T> = Omit<React.ComponentPropsWithoutRef<"select">, "onChange" | "onBlur"> & {
+  name: keyof T & string;
+  id: keyof T & string;
 };
 
-export default function Select({ children, ...props }: SelectProps) {
+function Select<T>({ name, id, className, children, ...props }: SelectProps<T>) {
+  const { register } = useFormContext();
+
   return (
-    <select
-      className='flex w-full min-h-9 pr-m pl-l justify-between items-center border-width-s rounded-full border-neutral-inverse-primary select-form'
-      {...props}
-    >
+    <select {...register(name)} id={id} className={cn(inputStyles, "focus:outline-none", className)} {...props}>
       {children}
     </select>
   );
 }
+export default Select;
