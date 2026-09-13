@@ -1,9 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { createForm } from "../utils/createForm";
+import { testSchema, type TestSchema } from "../utils/testSchema";
 import Button from "../components/Button";
-import { testSchema } from "../utils/testSchema";
 
-const { Form, InputContainer, Input, Fieldset, Checkbox } = createForm(testSchema);
+const { Form, InputContainer, Input, Fieldset, Checkbox, Select, Option } = createForm(testSchema);
+
+const handleSubmit = (data: TestSchema) => {
+  console.log("Storybook Form submitted", data);
+};
 
 const meta = {
   title: "Components/Form",
@@ -15,6 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    onSubmit: handleSubmit,
     className: "w-96",
     children: (
       <>
@@ -32,6 +37,20 @@ export const Default: Story = {
           <Checkbox name="size" id="xl" label="XL" value="XL" />
           <Checkbox name="size" id="xxl" label="XXL" value="XXL" />
         </Fieldset>
+        <InputContainer label="Provincia:" htmlFor="location">
+          <Select name="location" id="location" defaultValue="">
+            <Option disabled>Seleccione una provincia</Option>
+            <Option field="location" value="buenos-aires">
+              Buenos Aires
+            </Option>
+            <Option field="location" value="cordoba">
+              Córdoba
+            </Option>
+            <Option field="location" value="santa-fe">
+              Santa Fe
+            </Option>
+          </Select>
+        </InputContainer>
         <Button type="submit">Enviar</Button>
       </>
     )

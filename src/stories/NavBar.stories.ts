@@ -6,8 +6,8 @@ import { http, HttpResponse } from "msw";
 
 const TestData: Pick<ApiResponse<UserAvatarResponse>, "data"> = {
   data: {
-    nombreUsuario: "randomuser",
-    fotoPerfil: "https://randomuser.me/api/portraits/men/75.jpg"
+    username: "randomuser",
+    profilePicture: "https://randomuser.me/api/portraits/men/75.jpg"
   }
 };
 

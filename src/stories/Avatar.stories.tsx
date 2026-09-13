@@ -6,8 +6,8 @@ import type { UserAvatarResponse } from "../services/users/users.types";
 
 const TestData: Pick<ApiResponse<UserAvatarResponse>, "data"> = {
   data: {
-    nombreUsuario: "randomuser",
-    fotoPerfil: "https://randomuser.me/api/portraits/men/75.jpg"
+    username: "randomuser",
+    profilePicture: "https://randomuser.me/api/portraits/men/75.jpg"
   }
 };
 
@@ -55,7 +55,7 @@ export const WithoutProfilePicture: Story = {
         return HttpResponse.json({
           data: {
             ...TestData.data,
-            fotoPerfil: undefined
+            profilePicture: undefined
           }
         });
       })
