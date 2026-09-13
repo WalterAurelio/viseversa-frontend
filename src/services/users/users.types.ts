@@ -1,10 +1,10 @@
 export type UserProfileResponse = {
-  nombre: string;
-  apellido: string;
-  nombreUsuario: string;
-  fotoPerfil?: string;
-  ubicacion?: string;
+  name: string;
+  lastName: string;
+  username: string;
+  profilePicture?: string;
+  location?: string;
   createdAt: string;
 };
 
-export type UserAvatarResponse = Pick<UserProfileResponse, "nombreUsuario" | "fotoPerfil">;
+export type UserAvatarResponse = Pick<UserProfileResponse, "username" | "profilePicture">;

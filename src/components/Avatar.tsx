@@ -19,13 +19,13 @@ const avatarSizes = {
 
 export default function Avatar({ className, hasStatus = true, hasUsername = true, size = "S" }: AvatarProps) {
   const { data } = useGetUserProfile();
-  const { nombreUsuario, fotoPerfil } = data;
+  const { username, profilePicture } = data;
 
   return (
     <div className={cn("relative flex items-center gap-m", className)}>
       <div className={cn("relative shrink-0 overflow-visible rounded-full", avatarSizes[size])}>
-        {fotoPerfil ? (
-          <img className="size-full rounded-full object-cover" src={fotoPerfil} alt={nombreUsuario ? `${nombreUsuario}'s profile` : "Profile picture"} />
+        {profilePicture ? (
+          <img className="size-full rounded-full object-cover" src={profilePicture} alt={username ? `${username}'s profile` : "Profile picture"} />
         ) : (
           <div className="flex size-full items-center justify-center rounded-full bg-neutral-disabled" aria-label="No profile picture">
             <User className="size-4.5" />
@@ -33,7 +33,7 @@ export default function Avatar({ className, hasStatus = true, hasUsername = true
         )}
         {hasStatus && <StatusPin className="absolute right-0 bottom-0" />}
       </div>
-      {hasUsername && <p className="label-default wrap-break-word">{nombreUsuario}</p>}
+      {hasUsername && <p className="label-default wrap-break-word">{username}</p>}
     </div>
   );
 }

@@ -5,7 +5,8 @@ type CheckboxProps<T, K extends keyof T> = Omit<React.ComponentPropsWithoutRef<"
   name: K;
   id: string;
   label: string;
-  value?: T[K] extends (infer U)[] ? U : never;
+  // value?: T[K] extends (infer U)[] ? U : never;
+  value?: T[K] extends (infer U)[] | undefined ? U : never;
 };
 
 function Checkbox<T>() {

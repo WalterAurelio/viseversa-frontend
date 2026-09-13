@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import CheckboxFn from "../components/Checkbox";
+import { createForm } from "../utils/createForm";
+import { testSchema } from "../utils/testSchema";
 import FormWrapper from "../components/FormWrapper";
-import type { TestSchema } from "../utils/testSchema";
 
-type Size = { size: TestSchema["size"] };
-
-const Checkbox = CheckboxFn<Size>();
+const { Checkbox } = createForm(testSchema);
 
 const meta = {
   title: "Components/Checkbox",
@@ -13,8 +11,8 @@ const meta = {
   args: {
     name: "size",
     id: "xl",
-    label: "XL",
-    value: "XL"
+    label: "XL"
+    // value: "XL"
   },
   decorators: [
     (Story) => (

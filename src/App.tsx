@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router";
-import Home from "./pages/Home";
-import LogIn from "./pages/LogIn";
 import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
 import RequireAuth from "./components/RequireAuth";
+import MainLayout from "./layouts/MainLayout";
+import Home from "./pages/Home";
+import Category from "./pages/Category";
 import Profile from "./pages/Profile";
 import { Suspense } from "react";
-import MainLayout from "./layouts/MainLayout";
 import "react-time-ago/locale/es";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route element={<RequireAuth />}>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/:category" element={<Category />} />
           <Route
             path="/profile"
             element={
