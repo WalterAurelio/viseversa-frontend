@@ -8,10 +8,10 @@ vi.mock("../services/users/users.queries.ts");
 
 describe("Avatar component", () => {
   const mockUserProfile = {
-    nombre: "Aurelio",
-    apellido: "Gareca",
-    nombreUsuario: "wolter22",
-    fotoPerfil: "https://randomuser.me/api/portraits/men/75.jpg",
+    name: "Aurelio",
+    lastName: "Gareca",
+    username: "wolter22",
+    profilePicture: "https://randomuser.me/api/portraits/men/75.jpg",
     createdAt: "2023-01-01T00:00:00Z"
   } satisfies UserProfileResponse;
 
@@ -37,7 +37,7 @@ describe("Avatar component", () => {
     vi.mocked(userQueries.useGetUserProfile, { partial: true }).mockReturnValue({
       data: {
         ...mockUserProfile,
-        fotoPerfil: undefined
+        profilePicture: undefined
       }
     });
 
