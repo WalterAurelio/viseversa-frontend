@@ -41,11 +41,13 @@ describe("Avatar component", () => {
       }
     });
 
-    const { getByTestId } = render(<Avatar />);
+    const { getByTestId, getByLabelText } = render(<Avatar />);
 
     const avatar = getByTestId("avatar-component");
+    const noProfilePictureIcon = getByLabelText("No profile picture");
 
     expect(avatar).toBeInTheDocument();
     expect(avatar.querySelector("img")).not.toBeInTheDocument();
+    expect(noProfilePictureIcon).toBeInTheDocument();
   });
 });
