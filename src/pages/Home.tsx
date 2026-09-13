@@ -1,9 +1,9 @@
 import { useAuthStore } from "../store/authStore";
 import { useQueryClient } from "@tanstack/react-query";
+import { useGetProducts } from "../services/products/products.queries";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/auth";
 import { Link } from "react-router";
-import { useGetProducts } from "../services/products/products.queries";
 
 function Home() {
   const user = useAuthStore((state) => state.user);

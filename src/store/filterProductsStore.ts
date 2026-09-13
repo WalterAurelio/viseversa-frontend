@@ -1,12 +1,12 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 type FilterStore = {
   talle?: string;
   ubicacion?: string;
   categoria?: string;
-  setTalle: (talle: FilterStore['talle']) => void;
-  setUbicacion: (ubicacion: FilterStore['ubicacion']) => void;
-  setCategoria: (categoria: FilterStore['categoria']) => void;
+  setTalle: (talle: FilterStore["talle"]) => void;
+  setUbicacion: (ubicacion: FilterStore["ubicacion"]) => void;
+  setCategoria: (categoria: FilterStore["categoria"]) => void;
 };
 
 export const useFilterProductsStore = create<FilterStore>((set) => ({
