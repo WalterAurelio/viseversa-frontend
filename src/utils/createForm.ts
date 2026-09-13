@@ -15,7 +15,7 @@ export function createForm<T extends z4.$ZodObject>(schema: T) {
     ...props
   }: Omit<React.ComponentPropsWithoutRef<"form">, "onSubmit"> & {
     onSubmit?: SubmitHandler<FormData>;
-    defaultValues?: DefaultValues<z4.input<T>>;
+    defaultValues?: () => DefaultValues<z4.input<T>> | DefaultValues<z4.input<T>>;
   }) => FormComponent({ schema, ...props });
 
   const InputContainer = InputContainerComponent<FormData>;

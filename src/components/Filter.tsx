@@ -15,9 +15,11 @@ function Filter() {
   const filterSchema = useFilterSchema(locations, sizes);
   const { Form, Fieldset, Checkbox, InputContainer, Select, Option } = useMemo(() => createForm(filterSchema), [filterSchema]);
   type FilterSchema = z.infer<typeof filterSchema>;
-  const defaultValues: FilterSchema = {
-    size: searchParams.getAll("size"),
-    location: searchParams.get("location") || undefined
+  const defaultValues: () => FilterSchema = () => {
+    return {
+      size: searchParams.getAll("size"),
+      location: searchParams.get("location") || undefined
+    };
   };
 
   const handleClick = () => {
