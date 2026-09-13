@@ -30,18 +30,18 @@ export const InputStory: Story = {
 
 export const SelectStory: Story = {
   args: {
-    label: "Provincia:",
-    htmlFor: "province",
+    label: "Ubicación:",
+    htmlFor: "location",
     children: (
-      <Select name="province" id="province" defaultValue="">
-        <Option disabled>Seleccione una provincia</Option>
-        <Option field="province" value="buenos-aires">
+      <Select name="location" id="location" defaultValue="">
+        <Option disabled>Seleccione una ubicación</Option>
+        <Option field="location" value="buenos-aires">
           Buenos Aires
         </Option>
-        <Option field="province" value="cordoba">
+        <Option field="location" value="cordoba">
           Córdoba
         </Option>
-        <Option field="province" value="santa-fe">
+        <Option field="location" value="santa-fe">
           Santa Fe
         </Option>
       </Select>
@@ -49,7 +49,7 @@ export const SelectStory: Story = {
   },
   decorators: [
     (Story) => (
-      <FormWrapper htmlName="province">
+      <FormWrapper htmlName="location">
         <Story />
       </FormWrapper>
     )

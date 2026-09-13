@@ -9,19 +9,19 @@ const meta = {
   title: "Components/Select",
   component: Select,
   args: {
-    name: "province",
-    id: "province",
+    name: "location",
+    id: "location",
     defaultValue: "",
     children: (
       <>
-        <Option disabled>Seleccione una provincia</Option>
-        <Option field="province" value="buenos-aires">
+        <Option disabled>Seleccione una ubicación</Option>
+        <Option field="location" value="buenos-aires">
           Buenos Aires
         </Option>
-        <Option field="province" value="cordoba">
+        <Option field="location" value="cordoba">
           Córdoba
         </Option>
-        <Option field="province" value="santa-fe">
+        <Option field="location" value="santa-fe">
           Santa Fe
         </Option>
       </>
