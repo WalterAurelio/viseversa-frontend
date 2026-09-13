@@ -18,7 +18,7 @@ function Filter() {
   const defaultValues: () => FilterSchema = () => {
     return {
       size: searchParams.getAll("size"),
-      location: searchParams.get("location") || undefined
+      location: searchParams.get("location") || ""
     };
   };
 
@@ -27,7 +27,13 @@ function Filter() {
   };
 
   const handleSubmit = (data: FilterSchema) => {
-    setSearchParams(data);
+    const params: Record<string, string | string[]> = {};
+    for (const [key, value] of Object.entries(data)) {
+      if (value) {
+        params[key] = value;
+      }
+    }
+    setSearchParams(params);
   };
 
   return (
