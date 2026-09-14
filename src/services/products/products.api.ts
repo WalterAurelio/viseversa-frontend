@@ -18,6 +18,11 @@ export const getProducts = async () => {
 };
 
 export const getProductsByCategory = async (category: string, params: string) => {
-  const res = await axiosInstance.get<ApiResponse<ProductResponse[]>>(`/products/${category}?${params}`);
+  const res = await axiosInstance.get<ApiResponse<ProductResponse[]>>(`/products/category/${category}?${params}`);
+  return res.data.data;
+};
+
+export const getProductsBySearch = async (searchQuery: string) => {
+  const res = await axiosInstance.get<ApiResponse<ProductResponse[]>>(`/products/search?${searchQuery}`);
   return res.data.data;
 };
