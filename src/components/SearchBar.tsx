@@ -16,10 +16,7 @@ type SearchBarSchema = z.infer<typeof searchBarSchema>;
 function SearchBar() {
   const [searchParams] = useSearchParams();
   const { register, handleSubmit, control, resetField, setFocus, setValue } = useForm<SearchBarSchema>({
-    resolver: zodResolver(searchBarSchema),
-    defaultValues: {
-      query: searchParams.get("query") || ""
-    }
+    resolver: zodResolver(searchBarSchema)
   });
   const queryValue = useWatch({ name: "query", control });
   const navigate = useNavigate();
