@@ -5,6 +5,7 @@ import RequireAuth from "./components/RequireAuth";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
+import Search from "./pages/Search";
 import Profile from "./pages/Profile";
 import { Suspense } from "react";
 import "react-time-ago/locale/es";
@@ -19,6 +20,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/:category" element={<Category />} />
+          <Route path="/search" element={<Search />} />
           <Route
             path="/profile"
             element={

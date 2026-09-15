@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { getSizes, getLocations, getProducts, getProductsByCategory } from "./products.api";
+import { getSizes, getLocations, getProducts, getProductsByCategory, getProductsBySearch } from "./products.api";
 
 export const useGetSizes = (category: string) => {
   return useSuspenseQuery({
@@ -28,5 +28,12 @@ export const useGetProductsByCategory = (category: string, params: string) => {
   return useSuspenseQuery({
     queryKey,
     queryFn: () => getProductsByCategory(category, params)
+  });
+};
+
+export const useGetProductsBySearch = (searchQuery: string) => {
+  return useSuspenseQuery({
+    queryKey: ["products", { searchQuery }],
+    queryFn: () => getProductsBySearch(searchQuery)
   });
 };

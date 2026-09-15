@@ -2,18 +2,34 @@ import MagnifyingGlass from "../assets/icons/MagnifyingGlass.svg?react";
 import X from "../assets/icons/X.svg?react";
 import { useForm, useWatch } from "react-hook-form";
 import { cn } from "../utils/cn";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate, useSearchParams } from "react-router";
+import { useEffect } from "react";
 
-type SearchBarData = {
-  query: string;
-};
+const searchBarSchema = z.object({
+  query: z.string().trim().min(1, "La búsqueda no puede estar vacía")
+});
+
+type SearchBarSchema = z.infer<typeof searchBarSchema>;
 
 function SearchBar() {
-  const { register, handleSubmit, control, resetField, setFocus } = useForm<SearchBarData>();
+  const [searchParams] = useSearchParams();
+  const { register, handleSubmit, control, resetField, setFocus, setValue } = useForm<SearchBarSchema>({
+    resolver: zodResolver(searchBarSchema)
+  });
   const queryValue = useWatch({ name: "query", control });
+  const navigate = useNavigate();
 
-  const onSubmit = (data: SearchBarData) => {
-    console.log(data);
-    // Aquí puedes manejar la lógica de búsqueda con el valor de `data.query`
+  useEffect(() => {
+    const queryParam = searchParams.get("query") || "";
+    setValue("query", queryParam);
+  }, [searchParams, setValue]);
+
+  const onSubmit = (data: SearchBarSchema) => {
+    const normalizedQuery = data.query.trim().toLowerCase();
+    const params = new URLSearchParams({ query: normalizedQuery }).toString();
+    navigate(`/search?${params}`);
   };
 
   return (
