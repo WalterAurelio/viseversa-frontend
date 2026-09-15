@@ -8,7 +8,7 @@ import { useNavigate, useSearchParams } from "react-router";
 import { useEffect } from "react";
 
 const searchBarSchema = z.object({
-  query: z.string().min(1, "La búsqueda no puede estar vacía")
+  query: z.string().trim().min(1, "La búsqueda no puede estar vacía")
 });
 
 type SearchBarSchema = z.infer<typeof searchBarSchema>;
@@ -28,7 +28,8 @@ function SearchBar() {
 
   const onSubmit = (data: SearchBarSchema) => {
     const normalizedQuery = data.query.trim().toLowerCase();
-    navigate(`/search?query=${normalizedQuery}`);
+    const params = new URLSearchParams({ query: normalizedQuery }).toString();
+    navigate(`/search?${params}`);
   };
 
   return (
