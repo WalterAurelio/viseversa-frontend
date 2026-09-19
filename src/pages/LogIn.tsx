@@ -1,51 +1,37 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/auth';
-import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/auth";
+import { Link, useNavigate } from "react-router";
+import { loginSchema, type LoginSchema } from "../schemas/loginSchema";
+import { createForm } from "../utils/createForm";
+import Button from "../components/Button";
 
-type LogInData = {
-  email: string;
-  contraseña: string;
-};
+const { Form, InputContainer, Input } = createForm(loginSchema);
 
 function LogIn() {
-  const { register, handleSubmit } = useForm<LogInData>();
   const navigate = useNavigate();
 
-  const onSubmit = async (data: LogInData) => {
+  const onSubmit = async (data: LoginSchema) => {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, data.email, data.contraseña);
-      console.log('Inicio de sesión exitoso:', userCredential.user);
-      navigate('/');
+      const userCredential = await signInWithEmailAndPassword(auth, data.email, data.password);
+      console.log("Inicio de sesión exitoso:", userCredential.user);
+      navigate("/");
     } catch (error) {
-      console.error('Error al iniciar sesión:', error);
+      console.error("Error al iniciar sesión:", error);
     }
   };
 
   return (
-    <div className='w-3xl mx-auto mt-8 flex flex-col gap-4'>
-      <form
-        className='flex flex-col border border-gray-300 rounded-md p-4 gap-2'
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <legend>Iniciar sesión</legend>
-        <label htmlFor='email'>Email:</label>
-        <input
-          {...register('email')}
-          name='email'
-          id='email'
-          type='email'
-        />
-        <label htmlFor='contraseña'>Contraseña:</label>
-        <input
-          {...register('contraseña')}
-          name='contraseña'
-          id='contraseña'
-          type='password'
-        />
-        <button type='submit'>Iniciar sesión</button>
-      </form>
-      <Link to='/signup'>¿No tienes una cuenta? Regístrate</Link>
+    <div>
+      <Form onSubmit={onSubmit}>
+        <InputContainer htmlFor="email" label="Email:">
+          <Input id="email" name="email" placeholder="Ingresa tu email" className="w-full" />
+        </InputContainer>
+        <InputContainer htmlFor="password" label="Contraseña:">
+          <Input id="password" name="password" placeholder="Ingresa tu contraseña" type="password" className="w-full" />
+        </InputContainer>
+        <Button type="submit">Iniciar sesión</Button>
+      </Form>
+      <Link to="/signup">¿No tienes una cuenta? Regístrate</Link>
     </div>
   );
 }
