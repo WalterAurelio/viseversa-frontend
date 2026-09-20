@@ -1,35 +1,29 @@
 import { createUserWithEmailAndPassword, deleteUser } from "firebase/auth";
 import { auth } from "../firebase/auth";
 import { useRegister } from "../services/users/users.queries";
-import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
+import { signupSchema, type SignupSchema } from "../schemas/signupSchema";
+import { createForm } from "../utils/createForm";
+import Button from "../components/Button";
 
-type SignUpData = {
-  email: string;
-  contraseña: string;
-  nombre: string;
-  apellido: string;
-  nombreUsuario: string;
-};
+const { Form, InputContainer, Input } = createForm(signupSchema);
 
 function SignUp() {
-  const { register, handleSubmit } = useForm<SignUpData>();
   const { mutateAsync } = useRegister();
   const navigate = useNavigate();
 
-  const onSubmit = async (data: SignUpData) => {
+  const onSubmit = async (data: SignupSchema) => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.contraseña);
+      const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
       console.log("Registro exitoso:", userCredential.user);
       await mutateAsync({
-        nombre: data.nombre,
-        apellido: data.apellido,
-        nombreUsuario: data.nombreUsuario
+        name: data.name,
+        lastName: data.lastName,
+        username: data.username
       });
       navigate("/");
     } catch (error) {
       console.error("Error al registrarse:", error);
-      // Si ocurre un error, elimina el usuario de Firebase Authentication
       if (auth.currentUser) {
         try {
           await deleteUser(auth.currentUser);
@@ -38,27 +32,30 @@ function SignUp() {
           console.error("Error al eliminar el usuario de Firebase Authentication:", rollbackError);
         }
       }
-      // Muestra un mensaje de error al usuario
       alert("Error al registrarse. Por favor, inténtalo de nuevo.");
     }
   };
 
   return (
-    <div className="mx-auto mt-8 flex w-3xl flex-col gap-4">
-      <form className="flex flex-col gap-2 rounded-md border border-gray-300 p-4" onSubmit={handleSubmit(onSubmit)}>
-        <legend>Registrarse</legend>
-        <label htmlFor="email">Email:</label>
-        <input {...register("email")} name="email" id="email" type="email" />
-        <label htmlFor="contraseña">Contraseña:</label>
-        <input {...register("contraseña")} name="contraseña" id="contraseña" type="password" />
-        <label htmlFor="nombre">Nombre:</label>
-        <input {...register("nombre")} name="nombre" id="nombre" type="text" />
-        <label htmlFor="apellido">Apellido:</label>
-        <input {...register("apellido")} name="apellido" id="apellido" type="text" />
-        <label htmlFor="nombreUsuario">Nombre de usuario:</label>
-        <input {...register("nombreUsuario")} name="nombreUsuario" id="nombreUsuario" type="text" />
-        <button type="submit">Registrarse</button>
-      </form>
+    <div>
+      <Form onSubmit={onSubmit}>
+        <InputContainer htmlFor="email" label="Email:">
+          <Input id="email" name="email" placeholder="Ingresa tu email" className="w-full" />
+        </InputContainer>
+        <InputContainer htmlFor="password" label="Contraseña:">
+          <Input id="password" name="password" placeholder="Ingresa tu contraseña" type="password" className="w-full" />
+        </InputContainer>
+        <InputContainer htmlFor="name" label="Nombre:">
+          <Input id="name" name="name" placeholder="Ingresa tu nombre" className="w-full" />
+        </InputContainer>
+        <InputContainer htmlFor="lastName" label="Apellido:">
+          <Input id="lastName" name="lastName" placeholder="Ingresa tu apellido" className="w-full" />
+        </InputContainer>
+        <InputContainer htmlFor="username" label="Nombre de usuario:">
+          <Input id="username" name="username" placeholder="Ingresa tu nombre de usuario" className="w-full" />
+        </InputContainer>
+        <Button type="submit">Registrarse</Button>
+      </Form>
       <Link to="/login">¿Ya tienes una cuenta? Inicia sesión</Link>
     </div>
   );
